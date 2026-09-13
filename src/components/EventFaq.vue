@@ -41,41 +41,41 @@ function toggleFaq(index) {
 </script>
 
 <template>
-  <section id="faq" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+  <section id="faq" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-24">
     
     <!-- Header -->
-    <div class="text-center mb-12">
-      <div class="inline-flex items-center gap-1.5 px-3 py-1 bg-black text-white text-xs font-mono font-bold tracking-widest uppercase mb-2">
+    <div class="text-center mb-8 sm:mb-12">
+      <div class="inline-flex items-center gap-1.5 px-2.5 py-1 bg-black text-white text-[10px] sm:text-xs font-mono font-bold tracking-widest uppercase mb-2">
         <HelpCircle class="w-3.5 h-3.5 text-[#2B78C4]" />
         <span>QUESTIONS FRÉQUENTES</span>
       </div>
-      <h2 class="font-heading font-black text-3xl sm:text-5xl uppercase tracking-tight text-black">
+      <h2 class="font-heading font-black text-2xl sm:text-4xl md:text-5xl uppercase tracking-tight text-black">
         TOUT CE QUE TU DOIS SAVOIR
       </h2>
     </div>
 
     <!-- Accordion list -->
-    <div class="space-y-4">
+    <div class="space-y-3 sm:space-y-4">
       <div
         v-for="(item, index) in faqs"
         :key="item.q"
         class="bg-white border-2 border-black transition-all"
-        :class="item.open ? 'shadow-[6px_6px_0px_0px_#000000]' : 'hover:border-neutral-700'"
+        :class="item.open ? 'shadow-[4px_4px_0px_0px_#000000] sm:shadow-[6px_6px_0px_0px_#000000]' : 'hover:border-neutral-700'"
       >
         <button
           @click="toggleFaq(index)"
-          class="w-full p-5 text-left flex items-center justify-between font-heading font-bold text-base sm:text-lg text-black uppercase focus:outline-none cursor-pointer"
+          class="w-full p-4 sm:p-5 text-left flex items-center justify-between font-heading font-bold text-sm sm:text-lg text-black uppercase focus:outline-none cursor-pointer"
         >
-          <span>{{ item.q }}</span>
+          <span class="pr-2">{{ item.q }}</span>
           <ChevronDown
-            class="w-5 h-5 transition-transform duration-200 shrink-0 ml-4"
+            class="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-200 shrink-0"
             :class="{ 'rotate-180 text-[#2B78C4]': item.open }"
           />
         </button>
 
         <div
           v-if="item.open"
-          class="px-5 pb-5 pt-1 text-xs sm:text-sm font-sans text-black/75 border-t border-black/10 leading-relaxed"
+          class="px-4 pb-4 sm:px-5 sm:pb-5 pt-1 text-xs sm:text-sm font-sans text-black/75 border-t border-black/10 leading-relaxed"
         >
           {{ item.a }}
         </div>
