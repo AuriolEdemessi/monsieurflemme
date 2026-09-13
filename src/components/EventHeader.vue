@@ -18,9 +18,10 @@ function scrollToSection(id) {
     <!-- Announcement Bar -->
     <div class="bg-black text-white text-[10px] sm:text-xs font-mono py-2 px-3 text-center tracking-wider uppercase overflow-hidden">
       <div class="inline-flex items-center gap-2 sm:gap-4 font-bold">
-        <span>🎬 CINÉ-DÉBRIEF • GOÛTER • KARAOKÉ</span>
-        <span class="text-amber-300">• PLACES LIMITÉES</span>
-        <span class="hidden sm:inline">• COTONOU, BÉNIN</span>
+        <span>🎬 CINÉ • DÉBRIEF • KARAOKÉ</span>
+        <span class="text-amber-300">• VENDREDI 18 SEPTEMBRE 20H</span>
+        <span class="text-emerald-400">• 30 PLACES MAX</span>
+        <span class="hidden sm:inline">• LE YAO, AKPAKPA</span>
       </div>
     </div>
 
@@ -40,7 +41,7 @@ function scrollToSection(id) {
               MONSIEUR FLEMME
             </span>
             <span class="font-mono text-[8px] sm:text-[10px] tracking-[0.2em] sm:tracking-[0.25em] text-[#5C241C] font-bold uppercase mt-0.5">
-              ÉVÉNEMENT // FLEMMARD CLUB
+              FLEMMARD CLUB // LE CINÉCLUB
             </span>
           </div>
         </a>
@@ -51,7 +52,7 @@ function scrollToSection(id) {
             LE PROGRAMME
           </button>
           <button @click="scrollToSection('formules')" class="hover:text-black uppercase transition-colors cursor-pointer">
-            LES FORMULES
+            LE PASS SOLO
           </button>
           <button @click="scrollToSection('lieu')" class="hover:text-black uppercase transition-colors cursor-pointer">
             INFOS & LIEU
@@ -69,7 +70,7 @@ function scrollToSection(id) {
             class="hidden sm:inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 bg-black text-white font-mono text-[11px] sm:text-xs font-bold tracking-wider uppercase hover:bg-[#5C241C] transition-all transform active:scale-95 shadow-[3px_3px_0px_0px_#2B78C4] cursor-pointer"
           >
             <Ticket class="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-            <span>RÉSERVER</span>
+            <span>RÉSERVER (3 000F)</span>
           </button>
 
           <!-- Quick Mobile CTA Icon Button -->
@@ -99,7 +100,7 @@ function scrollToSection(id) {
     <div v-if="mobileMenuOpen" class="md:hidden border-t-2 border-black bg-[#F8F7F5] px-6 py-6 space-y-4 animate-in slide-in-from-top-2 duration-200">
       <div class="flex flex-col space-y-3 font-mono text-sm font-bold">
         <button @click="scrollToSection('programme')" class="text-left py-2 hover:text-[#2B78C4] border-b border-black/10">LE PROGRAMME</button>
-        <button @click="scrollToSection('formules')" class="text-left py-2 hover:text-[#2B78C4] border-b border-black/10">LES FORMULES & TARIFS</button>
+        <button @click="scrollToSection('formules')" class="text-left py-2 hover:text-[#2B78C4] border-b border-black/10">LE PASS SOLO (3 000F)</button>
         <button @click="scrollToSection('lieu')" class="text-left py-2 hover:text-[#2B78C4] border-b border-black/10">INFOS & LIEU</button>
         <button @click="scrollToSection('faq')" class="text-left py-2 hover:text-[#2B78C4]">FAQ</button>
       </div>
@@ -109,7 +110,7 @@ function scrollToSection(id) {
           class="w-full py-3.5 bg-black text-white font-mono text-xs font-bold tracking-widest uppercase flex items-center justify-center gap-2 shadow-[3px_3px_0px_0px_#2B78C4]"
         >
           <Ticket class="w-4 h-4" />
-          <span>RÉSERVER MA PLACE</span>
+          <span>RÉSERVER MA PLACE (3 000F)</span>
         </button>
       </div>
     </div>
