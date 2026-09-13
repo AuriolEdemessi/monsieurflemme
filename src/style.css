@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-heading: 'Syne', sans-serif;
+    --font-sans: 'Inter', system-ui, sans-serif;
+    --font-mono: 'Space Grotesk', monospace;
+    --brand-bg: #F9F9F9;
+    --brand-card: #F4F4F4;
+    --brand-accent: #5C241C;
+    --brand-brown: #4A1E17;
+  }
+
+  * {
+    border-radius: 0px !important;
+  }
+
+  body {
+    background-color: #F9F9F9;
+    color: #000000;
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Syne', sans-serif;
+  }
+}
+
+.font-heavy {
+  font-family: 'Syne', sans-serif;
+}
+
+.font-display {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.font-mono {
+  font-family: 'Space Grotesk', monospace;
+}
+
+/* Marquee animation */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 22s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #111;
+}
+
+/* Grain subtle overlay */
+.hero-blue-pattern {
+  background-color: #2b70c9;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.12) 1.5px, transparent 0);
+  background-size: 24px 24px;
+}
