@@ -5,22 +5,17 @@ import { ChevronDown, HelpCircle } from 'lucide-vue-next'
 const faqs = ref([
   {
     q: 'Comment finaliser le paiement de ma place ?',
-    a: 'Dès que vous remplissez le formulaire ci-dessus, vous êtes automatiquement redirigé(e) vers notre discussion WhatsApp avec le récapitulatif pré-rempli. Vous pourrez payer via Mobile Money (MTN MoMo, Moov Money, Celtiis Cash) ou en espèces. Votre pass digital avec QR code vous sera envoyé dès réception du paiement.',
+    a: 'Dès que vous remplissez le formulaire ci-dessus, vous êtes automatiquement redirigé(e) vers notre discussion WhatsApp avec le récapitulatif pré-rempli. Vous pourrez payer via Mobile Money MTN MoMo ou en espèces. Votre pass digital avec QR code vous sera envoyé dès réception du paiement.',
     open: true
   },
   {
     q: 'Quels sont les horaires précis de l\'événement ?',
-    a: 'L\'accueil des participants commence dès 17h30. La projection débute à 18h00, suivie du débrief (20h00), du goûter gourmand (20h45) et de la session karaoké (jusqu\'à 23h30).',
-    open: false
-  },
-  {
-    q: 'Le goûter et les boissons sont-ils vraiment inclus ?',
-    a: 'Oui, à 100 % ! Toutes les formules incluent l\'accès au buffet sucré et salé ainsi qu\'aux boissons fraîches et mocktails préparés pour l\'occasion.',
+    a: 'L\'accueil des participants commence dès 19h30. La soirée se déroule en 3 phases : projection du film culte (20h00 - 21h30), débrief sans filtre (21h30 - 22h15) et session karaoké & vibes (22h15 - minuit).',
     open: false
   },
   {
     q: 'Puis-je venir avec des ami(e)s ?',
-    a: 'Absolument ! Vous pouvez choisir le Pass Duo (avec réduction) ou sélectionner plusieurs pass dans le champ quantité du formulaire.',
+    a: 'Bien sûr ! Cependant il n\'y a pas de pass duo : chaque ami(e) doit payer son propre pass solo à 3 000 FCFA. Augmentez simplement le nombre de places dans le formulaire.',
     open: false
   },
   {

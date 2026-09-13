@@ -56,7 +56,7 @@ function scrollToForm() {
               <Calendar class="w-4 h-4 sm:w-5 sm:h-5 text-[#2B78C4] shrink-0" />
               <div>
                 <span class="block font-mono text-[9px] sm:text-[10px] text-black/60 uppercase font-bold">DATE</span>
-                <span class="font-mono text-xs font-bold text-black">Vendredi 18 Septembre</span>
+                <span class="font-mono text-xs font-bold text-black">Vendredi 18 Septembre 2026</span>
               </div>
             </div>
 

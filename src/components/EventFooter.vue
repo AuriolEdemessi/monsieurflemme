@@ -17,7 +17,7 @@ import { MessageCircle } from 'lucide-vue-next'
             </span>
           </div>
           <p class="font-sans text-xs text-white/70 max-w-md mx-auto md:mx-0 leading-relaxed">
-            Événements éphémères, streetwear minimaliste & esprit Flemmard Club. Des moments uniques pensés pour déconnecter dans la bonne humeur.
+            Événements éphémères & esprit Flemmard Club. Des moments uniques pensés pour déconnecter dans la bonne humeur.
           </p>
         </div>
 

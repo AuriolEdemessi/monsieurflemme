@@ -39,7 +39,7 @@ import { MapPin, Navigation, Clock, Shield } from 'lucide-vue-next'
               <div>
                 <h4 class="font-heading font-bold text-xs sm:text-sm text-black">Ponctualité & Accueil</h4>
                 <p class="font-sans text-[11px] sm:text-xs text-black/70 mt-0.5">
-                  Accueil dès 17h30 pour s'installer, commander son snack et faire connaissance. Début de la projection à 18h00 pile.
+                  Accueil dès 19h30 pour s'installer et faire connaissance. Début de la projection à 20h00 pile.
                 </p>
               </div>
             </div>
@@ -62,7 +62,7 @@ import { MapPin, Navigation, Clock, Shield } from 'lucide-vue-next'
           <div class="relative w-full max-w-sm sm:max-w-md bg-[#5C241C] border-2 border-black p-6 sm:p-8 text-white shadow-[6px_6px_0px_0px_#2B78C4] sm:shadow-[10px_10px_0px_0px_#2B78C4] flex flex-col justify-between">
             <div class="flex items-center justify-between border-b border-white/20 pb-3">
               <span class="font-mono text-[10px] sm:text-xs font-bold tracking-widest text-amber-200 uppercase">
-                DRESS CODE : STREETWEAR CHILL
+                DRESS CODE : FLEMMARD
               </span>
               <span class="font-mono text-[10px] sm:text-xs font-bold">100% CONFORT</span>
             </div>

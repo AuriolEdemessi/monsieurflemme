@@ -19,7 +19,7 @@ function scrollToSection(id) {
     <div class="bg-black text-white text-[10px] sm:text-xs font-mono py-2 px-3 text-center tracking-wider uppercase overflow-hidden">
       <div class="inline-flex items-center gap-2 sm:gap-4 font-bold">
         <span>🎬 CINÉ • DÉBRIEF • KARAOKÉ</span>
-        <span class="text-amber-300">• VENDREDI 18 SEPTEMBRE 20H</span>
+        <span class="text-amber-300">• VENDREDI 18 SEPTEMBRE 2026 — 20H</span>
         <span class="text-emerald-400">• 30 PLACES MAX</span>
         <span class="hidden sm:inline">• LE YAO, AKPAKPA</span>
       </div>

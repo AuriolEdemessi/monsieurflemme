@@ -37,7 +37,7 @@ function buildWhatsAppUrl() {
     ``,
     `💰 *TOTAL À RÉGLER :* ${calculatedTotal.value.toLocaleString('fr-FR')} FCFA`,
     ``,
-    `Merci de me communiquer les instructions pour finaliser le paiement Mobile Money (MTN MoMo ou Moov Money) et recevoir mon pass digital ! 🔥`
+    `Merci de me communiquer les instructions pour finaliser le paiement Mobile Money (MTN MoMo) et recevoir mon pass digital ! 🔥`
   ].filter(line => line !== null).join('\n')
 
   return `https://wa.me/${beninTargetNumber}?text=${encodeURIComponent(messageLines)}`
@@ -73,7 +73,7 @@ function handleSubmit() {
         RÉSERVE TA PLACE EN 1 MINUTE
       </h2>
       <p class="font-sans text-xs sm:text-sm text-black/70 mt-2 px-2">
-        Remplis tes informations ci-dessous pour être redirigé(e) vers WhatsApp avec notre numéro officiel <strong class="text-[#5C241C]">(+229 01 91 31 93 57)</strong> afin de valider ton paiement Mobile Money (MTN MoMo / Moov Money).
+        Remplis tes informations ci-dessous pour être redirigé(e) vers WhatsApp avec notre numéro officiel <strong class="text-[#5C241C]">(+229 01 91 31 93 57)</strong> afin de valider ton paiement Mobile Money (MTN MoMo).
       </p>
     </div>
 
@@ -90,7 +90,7 @@ function handleSubmit() {
         </div>
         <div class="bg-[#F4EBD9] border border-black px-2.5 py-1 sm:px-3 sm:py-1.5 self-start sm:self-auto flex items-center gap-2 text-[10px] sm:text-xs font-mono font-bold">
           <Ticket class="w-3.5 h-3.5 text-black" />
-          <span>VENDREDI 18 SEPTEMBRE 20H • 30 PLACES MAX</span>
+          <span>VENDREDI 18 SEPTEMBRE 2026 — 20H • 30 PLACES MAX</span>
         </div>
       </div>
 
@@ -207,7 +207,7 @@ function handleSubmit() {
             </span>
           </div>
           <p class="text-[9px] sm:text-[10px] font-mono text-black/60">
-            ℹ️ Redirection vers WhatsApp (+229 01 91 31 93 57) avec le récapitulatif pré-rempli pour effectuer le paiement Mobile Money (MTN MoMo / Moov Money).
+            ℹ️ Redirection vers WhatsApp (+229 01 91 31 93 57) avec le récapitulatif pré-rempli pour effectuer le paiement Mobile Money (MTN MoMo).
           </p>
         </div>
 
@@ -232,7 +232,7 @@ function handleSubmit() {
           </div>
           <div class="flex items-center gap-1">
             <CheckCircle2 class="w-3.5 h-3.5 text-emerald-600" />
-            <span>Paiement MTN MoMo & Moov Money</span>
+            <span>Paiement MTN MoMo</span>
           </div>
         </div>
 

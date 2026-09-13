@@ -26,7 +26,7 @@ function handleFormulaSelect(formula) {
       <!-- Hero Section -->
       <EventHero />
 
-      <!-- Program / Timeline (Film + Débrief + Goûter + Karaoké) -->
+      <!-- Program / Timeline (Film + Débrief + Karaoké) -->
       <EventProgram />
 
       <!-- Pricing / Formulas -->
