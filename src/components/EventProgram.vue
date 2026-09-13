@@ -44,43 +44,43 @@ const steps = [
     accent: '#7C3AED',
     bg: '#F3E8FF',
     description: 'Le moment de lâcher prise absolu ! Que tu chantes comme une diva ou comme une casserole sous la douche, ici zéro jugement, que de la bonne humeur.',
-    perks: ['Catalogue de +50 000 titres', 'Duos et chants en groupe', 'Pack stickers offerts aux chanteurs']
+    perks: ['Catalogue de +50 000 titres', 'Duos et chants en groupe', 'Pack stickers offerts']
   }
 ]
 </script>
 
 <template>
-  <section id="programme" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+  <section id="programme" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-24">
     
     <!-- Section Header -->
-    <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-4 border-b-2 border-black">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 sm:mb-16 pb-3 sm:pb-4 border-b-2 border-black">
       <div>
-        <span class="font-mono text-xs font-bold tracking-widest text-[#5C241C] uppercase flex items-center gap-1.5">
-          <Sparkles class="w-4 h-4 text-[#5C241C]" />
+        <span class="font-mono text-[10px] sm:text-xs font-bold tracking-widest text-[#5C241C] uppercase flex items-center gap-1.5">
+          <Sparkles class="w-3.5 h-3.5 text-[#5C241C]" />
           DÉROULÉ DE LA SOIRÉE
         </span>
-        <h2 class="font-heading font-black text-3xl sm:text-5xl uppercase tracking-tight text-black mt-1">
+        <h2 class="font-heading font-black text-2xl sm:text-4xl md:text-5xl uppercase tracking-tight text-black mt-1">
           LE PROGRAMME COMPLET
         </h2>
       </div>
-      <p class="font-mono text-xs text-black/60 mt-2 md:mt-0 uppercase tracking-widest">
+      <p class="font-mono text-[10px] sm:text-xs text-black/60 mt-1 md:mt-0 uppercase tracking-widest">
         4 HEURES DE PURE DÉTENTE
       </p>
     </div>
 
     <!-- 4 Phases Timeline Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
       <div
         v-for="s in steps"
         :key="s.step"
-        class="bg-white border-2 border-black p-6 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-[8px_8px_0px_0px_#000000] relative overflow-hidden"
+        class="bg-white border-2 border-black p-4 sm:p-6 flex flex-col justify-between transition-all duration-300 hover:shadow-[6px_6px_0px_0px_#000000] relative overflow-hidden"
       >
         <!-- Top bar of the card -->
-        <div class="flex items-center justify-between border-b border-black/10 pb-4 mb-4">
-          <span class="font-heading text-2xl font-black text-black">
+        <div class="flex items-center justify-between border-b border-black/10 pb-3 mb-3 sm:pb-4 sm:mb-4">
+          <span class="font-heading text-xl sm:text-2xl font-black text-black">
             PHASE {{ s.step }}
           </span>
-          <span class="font-mono text-[11px] font-bold px-2 py-1 bg-black text-white flex items-center gap-1">
+          <span class="font-mono text-[10px] sm:text-[11px] font-bold px-2 py-0.5 bg-black text-white flex items-center gap-1">
             <Clock class="w-3 h-3" />
             {{ s.time }}
           </span>
@@ -88,27 +88,27 @@ const steps = [
 
         <!-- Icon box -->
         <div 
-          class="w-14 h-14 border-2 border-black flex items-center justify-center mb-5"
+          class="w-11 h-11 sm:w-14 sm:h-14 border-2 border-black flex items-center justify-center mb-3 sm:mb-5"
           :style="{ backgroundColor: s.bg }"
         >
-          <component :is="s.icon" class="w-7 h-7" :style="{ color: s.accent }" />
+          <component :is="s.icon" class="w-5 h-5 sm:w-7 sm:h-7" :style="{ color: s.accent }" />
         </div>
 
         <!-- Title and description -->
-        <div class="space-y-2 mb-6 flex-1">
-          <h3 class="font-heading font-black text-lg sm:text-xl text-black leading-tight uppercase">
+        <div class="space-y-1.5 sm:space-y-2 mb-4 sm:mb-6 flex-1">
+          <h3 class="font-heading font-black text-base sm:text-lg lg:text-xl text-black leading-tight uppercase">
             {{ s.title }}
           </h3>
-          <span class="block font-mono text-[11px] font-bold text-[#5C241C] uppercase tracking-wider">
+          <span class="block font-mono text-[10px] sm:text-[11px] font-bold text-[#5C241C] uppercase tracking-wider">
             // {{ s.subtitle }}
           </span>
-          <p class="font-sans text-xs text-black/70 leading-relaxed pt-2">
+          <p class="font-sans text-xs text-black/70 leading-relaxed pt-1">
             {{ s.description }}
           </p>
         </div>
 
         <!-- Mini perks checklist -->
-        <div class="pt-4 border-t border-black/10 space-y-1.5 text-[11px] font-mono text-black/80">
+        <div class="pt-3 border-t border-black/10 space-y-1 text-[10px] sm:text-[11px] font-mono text-black/80">
           <div v-for="p in s.perks" :key="p" class="flex items-center gap-1.5">
             <span class="text-[#2B78C4] font-bold">✓</span>
             <span>{{ p }}</span>
