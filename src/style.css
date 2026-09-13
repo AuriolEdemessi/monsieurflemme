@@ -2,45 +2,46 @@
 
 @layer base {
   :root {
-    --font-heading: 'Syne', sans-serif;
-    --font-sans: 'Inter', system-ui, sans-serif;
+    --font-logo: 'Lilita One', 'Syne', sans-serif;
+    --font-heading: 'Lilita One', 'Syne', sans-serif;
+    --font-sans: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
     --font-mono: 'Space Grotesk', monospace;
-    --brand-bg: #F9F9F9;
-    --brand-card: #F4F4F4;
-    --brand-accent: #5C241C;
-    --brand-brown: #4A1E17;
-  }
-
-  * {
-    border-radius: 0px !important;
+    --brand-blue: #2B78C4;
+    --brand-brown: #5C241C;
+    --brand-cream: #F8F7F5;
   }
 
   body {
-    background-color: #F9F9F9;
-    color: #000000;
-    font-family: 'Inter', sans-serif;
+    background-color: var(--brand-cream);
+    color: #111111;
+    font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Syne', sans-serif;
+    font-family: var(--font-heading);
+    letter-spacing: 0.02em;
   }
 }
 
-.font-heavy {
-  font-family: 'Syne', sans-serif;
+.font-logo {
+  font-family: 'Lilita One', 'Syne', cursive, sans-serif;
 }
 
-.font-display {
-  font-family: 'Space Grotesk', sans-serif;
+.font-heading {
+  font-family: 'Lilita One', 'Syne', cursive, sans-serif;
+}
+
+.font-sans {
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
 }
 
 .font-mono {
   font-family: 'Space Grotesk', monospace;
 }
 
-/* Marquee animation */
+/* Animations */
 @keyframes marquee {
   0% { transform: translateX(0%); }
   100% { transform: translateX(-50%); }
@@ -56,6 +57,19 @@
   animation-play-state: paused;
 }
 
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(3deg);
+  }
+}
+
+.animate-float {
+  animation: float-slow 4s ease-in-out infinite;
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
@@ -65,11 +79,4 @@
 }
 ::-webkit-scrollbar-thumb {
   background: #111;
-}
-
-/* Grain subtle overlay */
-.hero-blue-pattern {
-  background-color: #2b70c9;
-  background-image: radial-gradient(rgba(255, 255, 255, 0.12) 1.5px, transparent 0);
-  background-size: 24px 24px;
 }
