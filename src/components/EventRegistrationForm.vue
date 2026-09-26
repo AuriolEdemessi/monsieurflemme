@@ -21,9 +21,9 @@ function buildWhatsAppUrl() {
   const beninTargetNumber = '2290191319357'
 
   const messageLines = [
-    `👋 *NOUVELLE RÉSERVATION — FLEMMARD CLUB (CINÉ DÉBRIEF KARAOKÉ)*`,
+    `🎬 *NOUVELLE RÉSERVATION — FLEMMARD CLUB (LE CINÉCLUB — ÉDITION #02)*`,
     ``,
-    `Bonjour l'équipe Monsieur Flemme ! Je viens de remplir le formulaire sur le site pour la soirée du Vendredi 18 Septembre 2026 à 20h.`,
+    `Bonjour l'équipe Monsieur Flemme ! Je viens de remplir le formulaire sur le site pour la soirée du Vendredi 02 Octobre 2026 à 20h à Akpakpa Centre.`,
     ``,
     `📋 *DÉTAILS DU PARTICIPANT :*`,
     `• Nom complet : ${fullName.value.trim()}`,
@@ -31,7 +31,7 @@ function buildWhatsAppUrl() {
     `• Email : ${email.value.trim()}`,
     ``,
     `🎟️ *COMMANDE DE PASS :*`,
-    `• Formule : Pass Solo Flemmard (3 000 FCFA / place)`,
+    `• Formule : Pass Cinéclub Flemmard (3 000 FCFA / place)`,
     `• Nombre de pass : ${quantity.value}`,
     karaokeSong.value ? `• Chanson Karaoké souhaitée : ${karaokeSong.value.trim()}` : null,
     ``,
@@ -67,13 +67,13 @@ function handleSubmit() {
     <div class="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
       <div class="inline-flex items-center gap-1.5 px-3 py-1 bg-black text-white text-[10px] sm:text-xs font-mono font-bold tracking-widest uppercase mb-2 sm:mb-3">
         <Sparkles class="w-3.5 h-3.5 text-amber-300" />
-        <span>RÉSERVATION OFFICIELLE</span>
+        <span>🎬 LE CINÉCLUB — ÉDITION #02</span>
       </div>
       <h2 class="font-heading font-black text-2xl sm:text-4xl md:text-5xl uppercase tracking-tight text-black">
-        RÉSERVE TA PLACE EN 1 MINUTE
+        ON REMET ÇA. RÉSERVE TA PLACE ! 🎬
       </h2>
       <p class="font-sans text-xs sm:text-sm text-black/70 mt-2 px-2">
-        Remplis tes informations ci-dessous pour être redirigé(e) vers WhatsApp avec notre numéro officiel <strong class="text-[#5C241C]">(+229 01 91 31 93 57)</strong> afin de valider ton paiement Mobile Money (MTN MoMo).
+        <strong class="text-black">Le Cinéclub — Édition #02.</strong> On regarde. On argumente. On chante. Remplis le formulaire pour être redirigé(e) vers WhatsApp <strong class="text-[#5C241C]">(+229 01 91 31 93 57)</strong> et finaliser ton paiement MTN MoMo.
       </p>
     </div>
 
@@ -90,7 +90,7 @@ function handleSubmit() {
         </div>
         <div class="bg-[#F4EBD9] border border-black px-2.5 py-1 sm:px-3 sm:py-1.5 self-start sm:self-auto flex items-center gap-2 text-[10px] sm:text-xs font-mono font-bold">
           <Ticket class="w-3.5 h-3.5 text-black" />
-          <span>VENDREDI 18 SEPTEMBRE 2026 — 20H • 30 PLACES MAX</span>
+          <span>VENDREDI 02 OCTOBRE 2026 — 20H • AKPAKPA CENTRE</span>
         </div>
       </div>
 
@@ -197,7 +197,7 @@ function handleSubmit() {
         <div class="bg-[#F4EBD9] border-2 border-black p-4 sm:p-6 space-y-2.5">
           <div class="flex justify-between items-center text-[11px] sm:text-xs font-mono font-bold border-b border-black/20 pb-2">
             <span class="uppercase">RÉSUMÉ DE LA COMMANDE :</span>
-            <span class="text-[#5C241C]">Pass Solo Flemmard (x{{ quantity }})</span>
+            <span class="text-[#5C241C]">Pass Cinéclub Flemmard (x{{ quantity }})</span>
           </div>
 
           <div class="flex justify-between items-center text-sm sm:text-lg font-heading font-black text-black pt-1">

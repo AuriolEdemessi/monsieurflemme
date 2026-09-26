@@ -24,7 +24,7 @@ function scrollToForm() {
           <div class="flex flex-wrap items-center gap-2">
             <span class="inline-flex items-center gap-1.5 px-2.5 py-1 bg-black text-white text-[10px] sm:text-[11px] font-mono uppercase tracking-widest font-bold">
               <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-              FLEMMARD CLUB // LE CINÉCLUB
+              FLEMMARD CLUB // ÉDITION #02
             </span>
             <span class="inline-flex items-center gap-1 px-2.5 py-1 bg-[#5C241C] text-white text-[10px] sm:text-[11px] font-mono uppercase tracking-widest font-bold">
               30 PLACES MAX
@@ -56,7 +56,7 @@ function scrollToForm() {
               <Calendar class="w-4 h-4 sm:w-5 sm:h-5 text-[#2B78C4] shrink-0" />
               <div>
                 <span class="block font-mono text-[9px] sm:text-[10px] text-black/60 uppercase font-bold">DATE</span>
-                <span class="font-mono text-xs font-bold text-black">Vendredi 18 Septembre 2026</span>
+                <span class="font-mono text-xs font-bold text-black">Vendredi 02 Octobre 2026</span>
               </div>
             </div>
 
@@ -72,7 +72,7 @@ function scrollToForm() {
               <MapPin class="w-4 h-4 sm:w-5 sm:h-5 text-emerald-600 shrink-0" />
               <div>
                 <span class="block font-mono text-[9px] sm:text-[10px] text-black/60 uppercase font-bold">LIEU</span>
-                <span class="font-mono text-xs font-bold text-black">Le Yao, Akpakpa</span>
+                <span class="font-mono text-xs font-bold text-black">Akpakpa Centre</span>
               </div>
             </div>
           </div>
@@ -89,7 +89,7 @@ function scrollToForm() {
             </button>
 
             <a
-              href="https://wa.me/2290191319357?text=Bonjour%20l'équipe%20Monsieur%20Flemme%2C%20je%20souhaite%20des%20infos%20sur%20la%20Soirée%20Flemmard%20Club%20(Ciné%20Débrief%20Karaoké)"
+              href="https://wa.me/2290191319357?text=Bonjour%20l'équipe%20Monsieur%20Flemme%2C%20je%20souhaite%20des%20infos%20sur%20le%20Cinéclub%20Édition%20%2302%20(02%20Octobre%202026%20%E2%80%94%20Akpakpa%20Centre)"
               target="_blank"
               rel="noopener noreferrer"
               class="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3.5 sm:py-4 bg-[#25D366] text-black font-mono font-bold text-xs tracking-wider uppercase border-2 border-black hover:bg-emerald-400 transition-all shadow-[3px_3px_0px_0px_#000000]"
@@ -108,7 +108,7 @@ function scrollToForm() {
             <div class="flex items-center justify-between border-b-2 border-black pb-2 sm:pb-2.5 mb-3">
               <span class="font-mono text-[10px] sm:text-[11px] font-bold tracking-widest text-black flex items-center gap-1.5">
                 <Sparkles class="w-3 h-3 text-[#2B78C4]" />
-                SESSION 01
+                ÉDITION #02
               </span>
               <span class="font-mono text-[10px] sm:text-[11px] font-bold text-[#5C241C] bg-[#F4EBD9] px-2 py-0.5 border border-black">
                 3 000 FCFA
@@ -125,7 +125,7 @@ function scrollToForm() {
               
               <!-- Floating Overlay Badge -->
               <div class="absolute top-2 right-2 bg-black text-white font-mono text-[9px] sm:text-[10px] font-bold px-2 py-1 uppercase tracking-wider border border-white/40 shadow-sm">
-                30 PLACES DISPO
+                ON REMET ÇA 🎬
               </div>
             </div>
 
