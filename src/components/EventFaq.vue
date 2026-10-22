@@ -22,7 +22,7 @@ const faqs = [
   },
   {
     q: "Qu'est-ce qu'il y a au programme ?",
-    a: `Film d'horreur sur grand écran, karaoké, popcorn & bissap, jeux, atelier maquillage et déguisement en ton artiste préféré. Le tout en musique avec ${event.dj}.`,
+    a: `Film d'horreur sur grand écran, karaoké, popcorn & drink, jeux, atelier maquillage et déguisement en ton artiste préféré. Le tout en musique avec ${event.dj}.`,
   },
   {
     q: "J'ai la flemme. Je viens quand même ?",

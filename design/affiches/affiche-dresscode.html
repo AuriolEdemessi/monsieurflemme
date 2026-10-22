@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="poster-size" content="1080x1350" />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@700&family=Permanent+Marker&display=block" rel="stylesheet">
+  <link rel="stylesheet" href="affiches.css" />
+  <style>
+    html, body, .poster { width: 1080px; height: 1350px; }
+    .poster { background: var(--night); }
+
+    .logo { top: 54px; left: 50%; height: 92px; transform: translateX(-50%) rotate(-4deg); }
+
+    .kicker { top: 196px; left: 0; right: 0; text-align: center; font-size: 24px; color: var(--red); }
+
+    .title { top: 262px; left: 0; right: 0; text-align: center; color: var(--cream); }
+    .title .l1 { font-size: 160px; }
+    .title .l2 { font-size: 270px; color: var(--red); }
+    .title .l3 { font-size: 160px; display: inline-block; margin-top: 10px; }
+
+    .ribbons { top: 940px; left: 0; right: 0; text-align: center; }
+    .ribbons .ribbon { font-size: 62px; transform: rotate(-2.5deg); padding: 10px 56px 6px 60px; }
+
+    .bigdate { left: 0; right: 0; bottom: -70px; text-align: center; font-size: 300px; color: var(--shadow); z-index: 1; }
+    .meta { left: 0; right: 0; bottom: 64px; text-align: center; font-size: 24px; color: var(--cream); }
+    .meta b { color: var(--red); }
+  </style>
+</head>
+<body>
+  <div class="poster">
+    <svg class="art" viewBox="0 0 1080 1350" xmlns="http://www.w3.org/2000/svg">
+      <!-- Toiles d'araignée -->
+      <g id="webs" fill="none" stroke="#f5e5a1" stroke-width="3" stroke-linecap="round"></g>
+
+      <!-- Micro vintage à gauche -->
+      <g transform="translate(40 700) rotate(-18)">
+        <rect x="58" y="0" width="84" height="130" rx="42" fill="#ee5223" />
+        <path d="M66 40h68M66 66h68M66 92h68" stroke="#241f21" stroke-width="6" />
+        <path d="M40 90a60 60 0 0 0 120 0" fill="none" stroke="#f5e5a1" stroke-width="10" />
+        <rect x="94" y="150" width="12" height="80" fill="#f5e5a1" />
+        <rect x="64" y="226" width="72" height="12" fill="#f5e5a1" />
+      </g>
+
+      <!-- Étoile à droite -->
+      <g transform="translate(940 790) rotate(12)">
+        <path fill="#ee3924" d="M0-110 32-36 110-32 50 18 70 96 0 54-70 96-50 18-110-32-32-36Z" />
+        <path fill="#f5e5a1" d="M0-40 12-12 40-10 18 6 26 34 0 18-26 34-18 6-40-10-12-12Z" />
+      </g>
+
+      <g id="bats" fill="#f5e5a1"></g>
+    </svg>
+
+    <img class="layer logo" src="../../public/brand/logo-flemmard-club.png" alt="" />
+
+    <p class="layer mono kicker">Dress code · Halloween Special Edition</p>
+
+    <div class="layer title anton">
+      <div><span class="sliced l1">Viens en ton</span></div>
+      <div><span class="sliced l2">Artiste</span></div>
+      <div><span class="l3">préféré !</span></div>
+    </div>
+
+    <div class="layer ribbons anton">
+      <span class="ribbon">Atelier maquillage sur place</span>
+    </div>
+
+    <p class="layer anton bigdate">31 oct</p>
+    <p class="layer mono meta">Sam. 31 oct. · <b>dès 18h</b> · Le Yao, Akpakpa-Centre</p>
+  </div>
+
+  <script src="slice.js"></script>
+  <script src="decor.js"></script>
+  <script>
+    web('webs', -10, -10, 1, 0.7)
+    web('webs', 1090, -10, -1, 0.7)
+    scatter('bats', BAT, [[110, 1050, 0.6, -12], [880, 1030, 0.5, 10]])
+  </script>
+</body>
+</html>

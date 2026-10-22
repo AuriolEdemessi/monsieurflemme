@@ -38,7 +38,7 @@ function fileName(src) {
             Fais tourner <br />à ta <span class="text-blood">squad</span>
           </h2>
           <p v-reveal="200" class="mt-6 max-w-md text-lg text-bone-dim">
-            Un teaser pour faire monter la pression, une affiche avec toutes les infos. Envoie-les à celles et ceux qui ont la flemme de sortir. Ils viendront.
+            Un teaser pour faire monter la pression, les infos, Big H, le programme, le dress code. Envoie-les à celles et ceux qui ont la flemme de sortir. Ils viendront.
           </p>
         </div>
         <button v-reveal="300" @click="share" class="btn-primary self-start lg:self-auto">
@@ -49,8 +49,8 @@ function fileName(src) {
       </div>
     </div>
 
-    <!-- Défilement horizontal sur mobile, grille sur desktop -->
-    <ul class="mx-auto mt-14 flex max-w-7xl snap-x snap-mandatory items-end gap-4 overflow-x-auto px-4 pb-4 sm:gap-8 sm:px-6 lg:justify-center lg:overflow-visible lg:px-8">
+    <!-- Défilement horizontal à toutes les tailles d'écran -->
+    <ul class="mx-auto mt-14 flex max-w-7xl snap-x snap-mandatory items-end gap-4 overflow-x-auto px-4 pb-4 sm:gap-8 sm:px-6 lg:px-8">
       <li
         v-for="(poster, i) in event.posters"
         :key="poster.src"

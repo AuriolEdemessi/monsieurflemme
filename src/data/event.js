@@ -31,7 +31,7 @@ export const event = {
   program: [
     { icon: 'film', title: "Film d'horreur", text: 'Frissons sur grand écran.' },
     { icon: 'mic', title: 'Karaoké', text: 'Monte sur scène et exprime ton talent.' },
-    { icon: 'popcorn', title: 'Popcorn & Bissap', text: 'Des saveurs pour accompagner la vibe.' },
+    { icon: 'popcorn', title: 'Popcorn & Drink', text: 'Des saveurs pour accompagner la vibe.' },
     { icon: 'games', title: 'Jeux', text: 'Des jeux et animations pour tous.' },
     { icon: 'makeup', title: 'Atelier maquillage', text: 'Transformation spéciale Halloween.' },
     { icon: 'costume', title: 'Déguisement', text: 'Viens dans le style de ton artiste préféré !' },
@@ -43,6 +43,11 @@ export const event = {
   posters: [
     { src: '/events/halloween/affiche-teaser.jpg', label: 'Le teaser' },
     { src: '/events/halloween/affiche-infos.jpg', label: 'Toutes les infos' },
+    { src: '/events/halloween/affiche-dj.jpg', label: 'Music by Big H' },
+    { src: '/events/halloween/affiche-dj-story.jpg', label: 'Big H en story' },
+    { src: '/events/halloween/affiche-programme.jpg', label: 'Le programme' },
+    { src: '/events/halloween/affiche-dresscode.jpg', label: 'Le dress code' },
+    { src: '/events/halloween/affiche-places.jpg', label: '30 places' },
   ],
   heroVisual: '/events/halloween/mascotte-citrouille.webp',
   ambianceVisual: '/events/halloween/photo-dj.webp',

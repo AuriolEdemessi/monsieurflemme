@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="poster-size" content="1080x1350" />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@700&family=Permanent+Marker&display=block" rel="stylesheet">
+  <link rel="stylesheet" href="affiches.css" />
+  <style>
+    html, body, .poster { width: 1080px; height: 1350px; }
+    .poster { background: var(--red); }
+
+    .logo { top: 50px; left: 60px; height: 92px; transform: rotate(-4deg); }
+    .kicker { top: 84px; right: 64px; font-size: 22px; color: var(--cream); text-align: right; line-height: 1.6; }
+
+    .title { top: 178px; left: 62px; color: var(--cream); }
+    .title .by { font-size: 64px; color: var(--ink); transform: rotate(-5deg); display: inline-block; }
+    .title .l1 { font-size: 150px; }
+
+    .list { top: 440px; left: 62px; width: 640px; list-style: none; }
+    .list li { display: flex; align-items: baseline; gap: 26px; padding: 15px 0; border-top: 3px solid var(--ink); }
+    .list li:last-child { border-bottom: 3px solid var(--ink); }
+    .list .n { font-size: 22px; color: var(--cream); width: 40px; flex: none; }
+    .list .t { font-size: 66px; color: var(--ink); line-height: 0.95; white-space: nowrap; }
+
+    .slogan { left: 0; right: 0; bottom: 70px; text-align: center; color: var(--red); font-size: 76px; transform: rotate(-2deg); }
+  </style>
+</head>
+<body>
+  <div class="poster">
+    <svg class="art" viewBox="0 0 1080 1350" xmlns="http://www.w3.org/2000/svg">
+      <!-- Lune -->
+      <circle cx="930" cy="760" r="250" fill="#f5e5a1" />
+
+      <!-- Fantôme -->
+      <g transform="translate(790 470) rotate(10) scale(0.95)">
+        <path fill="#050a10" d="M120 0C52 0 18 52 18 118v140c0 18-18 34-18 52 26-6 34 16 58 10 20-6 22-30 44-28 22 2 26 30 50 30 22 0 26-26 48-26 24 0 34 22 58 16-8-24-18-40-18-64V118C240 52 190 0 120 0Z"/>
+        <ellipse cx="88" cy="98" rx="14" ry="22" fill="#ee3924"/>
+        <ellipse cx="152" cy="92" rx="14" ry="22" fill="#ee3924"/>
+        <ellipse cx="124" cy="160" rx="16" ry="24" fill="#ee3924"/>
+      </g>
+
+      <g id="bats" fill="#050a10"></g>
+
+      <!-- Sol et tombes -->
+      <g fill="#050a10">
+        <path d="M0 1186 L380 1172 L720 1180 L1080 1162 V1350 H0Z" />
+        <path d="M720 1180v-60a44 44 0 0 1 88 0v60z" />
+        <path d="M850 1176v-104h22v-30h36v30h22v104z" />
+        <path d="M966 1170l-12-56-26-24 7-9 23 19-5-38h10l7 38 9-44h10l-5 47 17-33 11 5-19 42 21-17 7 9-30 33 3 28z" />
+      </g>
+    </svg>
+
+    <img class="layer logo" src="../../public/brand/logo-flemmard-club.png" alt="" />
+    <p class="layer mono kicker">Halloween<br />Special Edition</p>
+
+    <div class="layer title anton">
+      <span class="marker by">Ce samedi,</span>
+      <div><span class="sliced l1">Au programme</span></div>
+    </div>
+
+    <ol class="layer list anton">
+      <li><span class="mono n">01</span><span class="t">Film d'horreur</span></li>
+      <li><span class="mono n">02</span><span class="t">Karaoké</span></li>
+      <li><span class="mono n">03</span><span class="t">Popcorn &amp; Drink</span></li>
+      <li><span class="mono n">04</span><span class="t">Jeux</span></li>
+      <li><span class="mono n">05</span><span class="t">Atelier maquillage</span></li>
+      <li><span class="mono n">06</span><span class="t">Déguisement</span></li>
+      <li><span class="mono n">07</span><span class="t">Music by Big H</span></li>
+    </ol>
+
+    <p class="layer anton slogan">Sam. 31 oct. · dès 18h · Le Yao</p>
+  </div>
+
+  <script src="slice.js"></script>
+  <script src="decor.js"></script>
+  <script>
+    scatter('bats', BAT, [[600, 1040, 0.6, -8], [560, 160, 0.5, 10], [660, 110, 0.35, -12]])
+  </script>
+</body>
+</html>

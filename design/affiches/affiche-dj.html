@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="poster-size" content="1080x1350" />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@700&family=Permanent+Marker&display=block" rel="stylesheet">
+  <link rel="stylesheet" href="affiches.css" />
+  <style>
+    html, body, .poster { width: 1080px; height: 1350px; }
+    .poster { background: var(--red); }
+
+    .logo { top: 48px; left: 60px; height: 92px; transform: rotate(-4deg); }
+
+    .bigdate { top: 150px; left: 40px; font-size: 300px; color: #c92f1d; z-index: 1; line-height: 0.82; }
+
+    .dj { right: 30px; bottom: 176px; height: 1090px; z-index: 3; }
+
+    .who { left: 56px; top: 690px; z-index: 4; }
+    .who .by { font-size: 70px; color: var(--cream); transform: rotate(-6deg); display: inline-block; }
+    .who .name { font-size: 268px; color: var(--cream); text-shadow: 12px 12px 0 var(--ink); margin-top: 6px; }
+    .who .ribbon { font-size: 54px; transform: rotate(-3deg); margin: 22px 0 0 -10px; padding: 8px 40px 4px 44px; }
+
+    .foot { left: 0; right: 0; bottom: 0; height: 176px; background: var(--ink); z-index: 5;
+      display: flex; align-items: center; justify-content: space-between; padding: 0 60px; }
+    .foot .event { font-size: 62px; color: var(--cream); line-height: 0.95; }
+    .foot .event .sliced { color: var(--red); }
+    .foot .meta { text-align: right; font-size: 21px; color: var(--cream); line-height: 1.7; }
+    .foot .meta b { color: var(--red); }
+  </style>
+</head>
+<body>
+  <div class="poster">
+    <svg class="art" viewBox="0 0 1080 1350" xmlns="http://www.w3.org/2000/svg">
+      <!-- Lune derrière la tête -->
+      <circle cx="710" cy="380" r="330" fill="#f5e5a1" />
+      <circle cx="710" cy="380" r="390" fill="none" stroke="#f5e5a1" stroke-width="6" stroke-dasharray="2 22" stroke-linecap="round" />
+      <g id="bats" fill="#050a10"></g>
+      <!-- Sol -->
+      <g fill="#050a10">
+        <path d="M0 1120 L360 1108 L720 1116 L1080 1100 V1350 H0Z" />
+      </g>
+    </svg>
+
+    <img class="layer logo" src="../../public/brand/logo-flemmard-club.png" alt="" />
+
+    <p class="layer anton bigdate">31<br />oct</p>
+
+    <img class="layer dj" src="src/big-h-cutout.png" alt="" />
+
+    <div class="layer who anton">
+      <span class="marker by">Music by</span>
+      <p class="name">Big H</p>
+      <span class="ribbon">Aux platines !</span>
+    </div>
+
+    <div class="layer foot">
+      <p class="anton event">Halloween<br /><span class="sliced" style="color: var(--red)">Special Edition</span></p>
+      <p class="mono meta">Sam. 31 oct. · <b>dès 18h</b><br />Le Yao · Akpakpa-Centre<br /><b>5 000 F</b> · 30 places</p>
+    </div>
+  </div>
+
+  <script src="slice.js"></script>
+  <script src="decor.js"></script>
+  <script>
+    scatter('bats', BAT, [[930, 760, 0.9, 10], [950, 60, 0.55, -6], [300, 40, 0.45, 12]])
+  </script>
+</body>
+</html>

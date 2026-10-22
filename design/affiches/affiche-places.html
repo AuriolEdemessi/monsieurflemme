@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="poster-size" content="1080x1080" />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@700&family=Permanent+Marker&display=block" rel="stylesheet">
+  <link rel="stylesheet" href="affiches.css" />
+  <style>
+    html, body, .poster { width: 1080px; height: 1080px; }
+    .poster { background: var(--red); }
+
+    .logo { top: 46px; left: 56px; height: 86px; transform: rotate(-4deg); }
+    .kicker { top: 74px; right: 60px; font-size: 21px; color: var(--cream); text-align: right; line-height: 1.6; }
+
+    .big { top: 160px; left: 50px; font-size: 500px; color: var(--ink); line-height: 0.82; }
+    .seulement { top: 220px; left: 590px; color: var(--cream); }
+    .seulement .places { font-size: 168px; }
+    .seulement .by { font-size: 68px; color: var(--ink); transform: rotate(-6deg); display: inline-block; margin: 14px 0 0 30px; }
+
+    .ribbons { top: 650px; left: 40px; }
+    .ribbons .ribbon { font-size: 72px; }
+    .ribbons .r1 { transform: rotate(-2.5deg); }
+    .ribbons .r2 { transform: rotate(2deg); margin: 10px 0 0 40px; font-size: 46px; }
+
+    .foot { left: 0; right: 0; bottom: 0; height: 150px; background: var(--ink); z-index: 3;
+      display: flex; align-items: center; justify-content: space-between; padding: 0 56px; }
+    .foot .label { font-size: 20px; color: var(--red); line-height: 1.6; }
+    .foot .value { font-size: 64px; color: var(--cream); }
+  </style>
+</head>
+<body>
+  <div class="poster">
+    <svg class="art" viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg">
+      <!-- Lune -->
+      <circle cx="960" cy="860" r="230" fill="#f5e5a1" />
+      <!-- Fantôme -->
+      <g transform="translate(890 650) rotate(-8) scale(0.8)">
+        <path fill="#050a10" d="M120 0C52 0 18 52 18 118v140c0 18-18 34-18 52 26-6 34 16 58 10 20-6 22-30 44-28 22 2 26 30 50 30 22 0 26-26 48-26 24 0 34 22 58 16-8-24-18-40-18-64V118C240 52 190 0 120 0Z"/>
+        <ellipse cx="88" cy="98" rx="14" ry="22" fill="#ee3924"/>
+        <ellipse cx="152" cy="92" rx="14" ry="22" fill="#ee3924"/>
+        <ellipse cx="124" cy="160" rx="16" ry="24" fill="#ee3924"/>
+      </g>
+      <g id="bats" fill="#050a10"></g>
+    </svg>
+
+    <img class="layer logo" src="../../public/brand/logo-flemmard-club.png" alt="" />
+    <p class="layer mono kicker">Halloween Special Edition<br />Sam. 31 oct. · dès 18h</p>
+
+    <p class="layer anton big">30</p>
+    <div class="layer seulement anton">
+      <p><span class="sliced places">places</span></p>
+      <span class="marker by">seulement !</span>
+    </div>
+
+    <div class="layer ribbons anton">
+      <div><span class="ribbon r1">5 000 F · tout inclus</span></div>
+      <div><span class="ribbon r2">Film · karaoké · popcorn &amp; drink · jeux</span></div>
+    </div>
+
+    <div class="layer foot">
+      <p class="mono label">Réserve<br />sur WhatsApp</p>
+      <p class="anton value">+229 01 91 31 93 57</p>
+    </div>
+  </div>
+
+  <script src="slice.js"></script>
+  <script src="decor.js"></script>
+  <script>
+    scatter('bats', BAT, [[660, 540, 0.8, 10]])
+  </script>
+</body>
+</html>
