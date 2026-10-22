@@ -35,7 +35,7 @@ import CrownDoodle from './ui/CrownDoodle.vue'
             des gens qui assument de prendre leur temps, et qui savent se retrouver quand ça compte.
           </p>
           <p v-reveal="100" class="mt-6 max-w-xl text-base leading-relaxed text-bone-dim sm:text-lg">
-            Pour Halloween, on sort du contexte. Une soirée entre frissons et beats, avec du cinéma,
+            Pour Halloween, on change d'ambiance. Une soirée entre frissons et beats, avec du cinéma,
             de la musique, des jeux et de la créativité. Petit comité, grosse énergie.
           </p>
 

@@ -6,13 +6,7 @@ import { event } from '../data/event'
   <footer class="relative border-t hairline pb-28 pt-16 md:pb-12">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col gap-10 md:flex-row md:items-center md:justify-between">
-        <div class="flex items-center gap-6">
-          <img src="/brand/logo-flemmard-club.png" alt="Flemmard Club" class="h-14 w-auto -rotate-3" loading="lazy" />
-          <span class="h-10 w-px bg-bone/15"></span>
-          <p class="text-2xl font-extrabold leading-none tracking-tight text-bone">
-            out of<br />context<span class="text-blood">*</span>
-          </p>
-        </div>
+        <img src="/brand/logo-flemmard-club.png" alt="Flemmard Club" class="h-14 w-auto self-start -rotate-3 md:self-auto" loading="lazy" />
 
         <ul class="flex flex-wrap items-center gap-x-3 gap-y-2">
           <li v-for="(pillar, i) in event.pillars" :key="pillar" class="label-mono flex items-center gap-3 text-bone-dim">
