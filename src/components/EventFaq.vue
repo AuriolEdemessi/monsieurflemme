@@ -1,81 +1,83 @@
 <script setup>
 import { ref } from 'vue'
-import { ChevronDown, HelpCircle } from 'lucide-vue-next'
+import { Plus } from 'lucide-vue-next'
+import { event, formatPrice } from '../data/event'
 
-const faqs = ref([
+const faqs = [
   {
-    q: 'Comment finaliser le paiement de ma place ?',
-    a: 'Dès que vous remplissez le formulaire ci-dessus, vous êtes automatiquement redirigé(e) vers notre discussion WhatsApp avec le récapitulatif pré-rempli. Vous pourrez payer via Mobile Money MTN MoMo ou en espèces. Votre pass digital avec QR code vous sera envoyé dès réception du paiement.',
-    open: true
+    q: 'Comment je réserve ma place ?',
+    a: `Clique sur « Réserver », indique ton nom, ton numéro WhatsApp et le nombre de places. Ta demande part directement sur notre WhatsApp : on te confirme ta place et on t'envoie les infos de paiement.`,
   },
   {
-    q: 'Quels sont les horaires précis de l\'événement ?',
-    a: 'L\'accueil des participants commence dès 19h30. La soirée se déroule en 3 phases : projection du film culte (20h00 - 21h30), débrief sans filtre (21h30 - 22h15) et session karaoké & vibes (22h15 - minuit).',
-    open: false
+    q: 'Combien coûte le ticket ?',
+    a: `${formatPrice(event.price)} par personne. Il n'y a que ${event.capacity} places, donc premier arrivé, premier servi.`,
   },
   {
-    q: 'Puis-je venir avec des ami(e)s ?',
-    a: 'Bien sûr ! Cependant il n\'y a pas de pass duo : chaque ami(e) doit payer son propre pass solo à 3 000 FCFA. Augmentez simplement le nombre de places dans le formulaire.',
-    open: false
+    q: 'Quel est le dress code ?',
+    a: `${event.dressCode} Version Halloween de préférence. Et si tu manques d'inspiration, l'atelier maquillage sur place s'occupe de ta transformation.`,
   },
   {
-    q: 'Je ne sais pas chanter, puis-je quand même venir au karaoké ?',
-    a: 'C\'est l\'esprit même du Flemmard Club ! Aucun niveau requis, le karaoké est une session 100% fun, rires et lâcher-prise en groupe.',
-    open: false
+    q: "C'est où et à quelle heure ?",
+    a: `${event.dateLong}, à partir de 18h, au ${event.venue} à ${event.area} (${event.city}).`,
   },
   {
-    q: 'Que se passe-t-il en cas d\'empêchement ?',
-    a: 'Si vous avez un imprévu, prévenez-nous sur WhatsApp au moins 24h avant l\'événement et nous pourrons transférer votre place à un ami ou vous rembourser.',
-    open: false
-  }
-])
+    q: "Qu'est-ce qu'il y a au programme ?",
+    a: `Film d'horreur sur grand écran, karaoké, popcorn & bissap, jeux, atelier maquillage et déguisement en ton artiste préféré. Le tout en musique avec ${event.dj}.`,
+  },
+  {
+    q: "J'ai la flemme. Je viens quand même ?",
+    a: `${event.motto} C'est exactement l'esprit du club.`,
+  },
+]
 
-function toggleFaq(index) {
-  faqs.value[index].open = !faqs.value[index].open
+const openIndex = ref(0)
+
+function toggle(i) {
+  openIndex.value = openIndex.value === i ? -1 : i
 }
 </script>
 
 <template>
-  <section id="faq" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-24">
-    
-    <!-- Header -->
-    <div class="text-center mb-8 sm:mb-12">
-      <div class="inline-flex items-center gap-1.5 px-2.5 py-1 bg-black text-white text-[10px] sm:text-xs font-mono font-bold tracking-widest uppercase mb-2">
-        <HelpCircle class="w-3.5 h-3.5 text-[#2B78C4]" />
-        <span>QUESTIONS FRÉQUENTES</span>
+  <section id="faq" class="relative border-t hairline py-24 sm:py-32">
+    <div class="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-4 sm:px-6 lg:grid-cols-12 lg:px-8">
+      <div class="lg:col-span-4">
+        <p v-reveal class="label-mono flex items-center gap-3 text-bone-dim">
+          <span class="text-blood">07</span> FAQ
+        </p>
+        <h2 v-reveal="100" class="display mt-6 text-[clamp(3rem,8vw,5.5rem)] text-bone">
+          Des <span class="whitespace-nowrap"><span class="text-blood">questions</span>&nbsp;?</span>
+        </h2>
       </div>
-      <h2 class="font-heading font-black text-2xl sm:text-4xl md:text-5xl uppercase tracking-tight text-black">
-        TOUT CE QUE TU DOIS SAVOIR
-      </h2>
-    </div>
 
-    <!-- Accordion list -->
-    <div class="space-y-3 sm:space-y-4">
-      <div
-        v-for="(item, index) in faqs"
-        :key="item.q"
-        class="bg-white border-2 border-black transition-all"
-        :class="item.open ? 'shadow-[4px_4px_0px_0px_#000000] sm:shadow-[6px_6px_0px_0px_#000000]' : 'hover:border-neutral-700'"
-      >
-        <button
-          @click="toggleFaq(index)"
-          class="w-full p-4 sm:p-5 text-left flex items-center justify-between font-heading font-bold text-sm sm:text-lg text-black uppercase focus:outline-none cursor-pointer"
-        >
-          <span class="pr-2">{{ item.q }}</span>
-          <ChevronDown
-            class="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-200 shrink-0"
-            :class="{ 'rotate-180 text-[#2B78C4]': item.open }"
-          />
-        </button>
-
-        <div
-          v-if="item.open"
-          class="px-4 pb-4 sm:px-5 sm:pb-5 pt-1 text-xs sm:text-sm font-sans text-black/75 border-t border-black/10 leading-relaxed"
-        >
-          {{ item.a }}
+      <div class="border-t hairline lg:col-span-8">
+        <div v-for="(item, i) in faqs" :key="item.q" class="border-b hairline">
+          <h3>
+            <button
+              @click="toggle(i)"
+              :aria-expanded="openIndex === i"
+              :aria-controls="`faq-${i}`"
+              class="group flex w-full items-center justify-between gap-6 py-6 text-left"
+            >
+              <span class="text-lg font-bold text-bone transition-colors group-hover:text-blood sm:text-xl">{{ item.q }}</span>
+              <span
+                :class="[
+                  'grid h-10 w-10 shrink-0 place-items-center rounded-full border transition-all duration-300',
+                  openIndex === i ? 'rotate-45 border-blood bg-blood text-ink' : 'hairline text-bone',
+                ]"
+              >
+                <Plus class="h-4 w-4" />
+              </span>
+            </button>
+          </h3>
+          <div
+            :id="`faq-${i}`"
+            class="grid transition-all duration-300 ease-out"
+            :class="openIndex === i ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'"
+          >
+            <p class="overflow-hidden pr-14 text-bone-dim" :class="openIndex === i ? 'pb-6' : ''">{{ item.a }}</p>
+          </div>
         </div>
       </div>
     </div>
-
   </section>
 </template>

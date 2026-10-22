@@ -1,8 +1,7 @@
 <script setup>
 import { ref, computed } from 'vue'
-import { CheckCircle2, MessageCircle, ArrowRight, ShieldCheck, Ticket, Sparkles, User, Mail, Phone, Music } from 'lucide-vue-next'
+import { CheckCircle2, MessageCircle, ArrowUpRight, ShieldCheck, Ticket, User, Mail, Phone, Music, Plus, Minus } from 'lucide-vue-next'
 
-// Form fields
 const fullName = ref('')
 const whatsappPhone = ref('')
 const email = ref('')
@@ -17,11 +16,19 @@ const calculatedTotal = computed(() => {
   return PASS_PRICE * quantity.value
 })
 
+function increment() {
+  if (quantity.value < 10) quantity.value++
+}
+
+function decrement() {
+  if (quantity.value > 1) quantity.value--
+}
+
 function buildWhatsAppUrl() {
   const beninTargetNumber = '2290191319357'
 
   const messageLines = [
-    `🎬 *NOUVELLE RÉSERVATION — FLEMMARD CLUB (LE CINÉCLUB — ÉDITION #02)*`,
+    `🎬 *NOUVELLE RÉSERVATION — FLEMMARD CLUB (ÉDITION #02)*`,
     ``,
     `Bonjour l'équipe Monsieur Flemme ! Je viens de remplir le formulaire sur le site pour la soirée du Vendredi 02 Octobre 2026 à 20h à Akpakpa Centre.`,
     ``,
@@ -31,13 +38,13 @@ function buildWhatsAppUrl() {
     `• Email : ${email.value.trim()}`,
     ``,
     `🎟️ *COMMANDE DE PASS :*`,
-    `• Formule : Pass Cinéclub Flemmard (3 000 FCFA / place)`,
+    `• Formule : Pass Solo Flemmard (3 000 FCFA / place)`,
     `• Nombre de pass : ${quantity.value}`,
-    karaokeSong.value ? `• Chanson Karaoké souhaitée : ${karaokeSong.value.trim()}` : null,
+    karaokeSong.value ? `• Son Karaoké souhaité : ${karaokeSong.value.trim()}` : null,
     ``,
     `💰 *TOTAL À RÉGLER :* ${calculatedTotal.value.toLocaleString('fr-FR')} FCFA`,
     ``,
-    `Merci de me communiquer les instructions pour finaliser le paiement Mobile Money (MTN MoMo) et recevoir mon pass digital ! 🔥`
+    `Merci de me transmettre les instructions pour le paiement Mobile Money (MoMo / Moov) et mon pass digital ! 🔥`
   ].filter(line => line !== null).join('\n')
 
   return `https://wa.me/${beninTargetNumber}?text=${encodeURIComponent(messageLines)}`
@@ -45,7 +52,7 @@ function buildWhatsAppUrl() {
 
 function handleSubmit() {
   if (!fullName.value || !whatsappPhone.value || !email.value) {
-    alert('Veuillez renseigner votre nom, téléphone WhatsApp et adresse email.')
+    alert('Veuillez renseigner votre nom, téléphone WhatsApp et email.')
     return
   }
 
@@ -56,187 +63,168 @@ function handleSubmit() {
     isSubmitting.value = false
     isSubmitted.value = true
     window.open(waUrl, '_blank')
-  }, 600)
+  }, 500)
 }
 </script>
 
 <template>
-  <section id="inscription" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-24">
-    
-    <!-- Header -->
-    <div class="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
-      <div class="inline-flex items-center gap-1.5 px-3 py-1 bg-black text-white text-[10px] sm:text-xs font-mono font-bold tracking-widest uppercase mb-2 sm:mb-3">
-        <Sparkles class="w-3.5 h-3.5 text-amber-300" />
-        <span>🎬 LE CINÉCLUB — ÉDITION #02</span>
-      </div>
-      <h2 class="font-heading font-black text-2xl sm:text-4xl md:text-5xl uppercase tracking-tight text-black">
-        ON REMET ÇA. RÉSERVE TA PLACE ! 🎬
-      </h2>
-      <p class="font-sans text-xs sm:text-sm text-black/70 mt-2 px-2">
-        <strong class="text-black">Le Cinéclub — Édition #02.</strong> On regarde. On argumente. On chante. Remplis le formulaire pour être redirigé(e) vers WhatsApp <strong class="text-[#5C241C]">(+229 01 91 31 93 57)</strong> et finaliser ton paiement MTN MoMo.
-      </p>
-    </div>
-
-    <!-- Main Form Box -->
-    <div class="bg-white border-2 border-black shadow-[6px_6px_0px_0px_#000000] sm:shadow-[12px_12px_0px_0px_#000000] p-4 sm:p-10 relative overflow-hidden">
+  <section id="inscription" class="relative bg-[#0B0B0C] text-white py-16 sm:py-28 border-b border-white/10 monodrift-grid">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <!-- Top Form Header -->
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 sm:pb-6 border-b-2 border-black gap-2 sm:gap-4 mb-6 sm:mb-8">
-        <div>
-          <span class="font-mono text-[10px] sm:text-xs font-bold text-[#5C241C] uppercase">// ÉTAPE UNIQUE</span>
-          <h3 class="font-heading font-black text-lg sm:text-2xl text-black uppercase">
-            FORMULAIRE D'INSCRIPTION
-          </h3>
-        </div>
-        <div class="bg-[#F4EBD9] border border-black px-2.5 py-1 sm:px-3 sm:py-1.5 self-start sm:self-auto flex items-center gap-2 text-[10px] sm:text-xs font-mono font-bold">
-          <Ticket class="w-3.5 h-3.5 text-black" />
-          <span>VENDREDI 02 OCTOBRE 2026 — 20H • AKPAKPA CENTRE</span>
-        </div>
+      <!-- Section Header in Monodrift Editorial Style -->
+      <div class="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
+        <span class="inline-block font-mono text-xs text-[#52FF9D] uppercase tracking-widest mb-3">
+          [ 03 // RÉSERVATION INSTANTANÉE ]
+        </span>
+        <h2 class="font-heading font-black text-3xl sm:text-5xl lg:text-6xl uppercase tracking-tight text-white leading-none">
+          PRENDS TA PLACE AU CLUB.
+        </h2>
+        <p class="font-sans text-sm sm:text-base text-[#8E8E93] mt-3">
+          Remplis le formulaire en 30 secondes. Tu es ensuite redirigé(e) directement vers WhatsApp (+229 01 91 31 93 57) pour valider ton pass auprès de notre équipe.
+        </p>
       </div>
 
-      <form @submit.prevent="handleSubmit" class="space-y-5 sm:space-y-6">
+      <!-- Main Monodrift Form Box -->
+      <div class="relative bg-[#141418] border border-white/15 rounded-3xl p-6 sm:p-12 shadow-2xl">
         
-        <!-- Row 1: Nom & Email -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+        <!-- Header of Form -->
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-b border-white/10 gap-3 mb-8">
           <div>
-            <label class="block font-mono text-xs font-bold uppercase tracking-wider text-black mb-1.5 flex items-center gap-1.5">
-              <User class="w-3.5 h-3.5" />
-              <span>NOM & PRÉNOM *</span>
-            </label>
-            <input
-              v-model="fullName"
-              type="text"
-              required
-              placeholder="Ex : Joe Flem"
-              class="w-full bg-[#F8F7F5] border-2 border-black p-3 text-sm font-sans focus:outline-none focus:bg-white transition-colors"
-            />
+            <span class="font-mono text-xs text-[#52FF9D] uppercase tracking-wider block">// VALIDATION EN 1 ÉTAPE</span>
+            <h3 class="font-heading font-black text-xl sm:text-2xl text-white uppercase mt-0.5">
+              COORDINATES & PASS
+            </h3>
           </div>
-
-          <div>
-            <label class="block font-mono text-xs font-bold uppercase tracking-wider text-black mb-1.5 flex items-center gap-1.5">
-              <Mail class="w-3.5 h-3.5" />
-              <span>ADRESSE EMAIL *</span>
-            </label>
-            <input
-              v-model="email"
-              type="email"
-              required
-              placeholder="Ex : monemail@gmail.com"
-              class="w-full bg-[#F8F7F5] border-2 border-black p-3 text-sm font-sans focus:outline-none focus:bg-white transition-colors"
-            />
+          <div class="px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-[#A0A0A5] flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-[#52FF9D]"></span>
+            <span>VENDREDI 02 OCT. • 20H00 • AKPAKPA</span>
           </div>
         </div>
 
-        <!-- Row 2: Téléphone WhatsApp & Nombre de pass -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-          <div>
-            <label class="block font-mono text-xs font-bold uppercase tracking-wider text-black mb-1.5 flex items-center gap-1.5">
-              <Phone class="w-3.5 h-3.5 text-emerald-600" />
-              <span>NUMÉRO WHATSAPP *</span>
-            </label>
-            <input
-              v-model="whatsappPhone"
-              type="tel"
-              required
-              placeholder="Ex : +229 01 91 31 93 57"
-              class="w-full bg-[#F8F7F5] border-2 border-black p-3 text-sm font-sans focus:outline-none focus:bg-white transition-colors"
-            />
-            <span class="text-[9px] sm:text-[10px] font-mono text-black/60 mt-1 block">
-              Pour recevoir ton pass digital d'accès à l'événement.
-            </span>
-          </div>
-
-          <div>
-            <label class="block font-mono text-xs font-bold uppercase tracking-wider text-black mb-1.5 flex items-center gap-1.5">
-              <Ticket class="w-3.5 h-3.5 text-[#2B78C4]" />
-              <span>NOMBRE DE PASS (3 000 FCFA / PLACE)</span>
-            </label>
-            <div class="flex items-center gap-2 sm:gap-3">
-              <button
-                type="button"
-                @click="quantity = Math.max(1, quantity - 1)"
-                class="w-11 h-11 sm:w-12 sm:h-12 bg-black text-white font-mono text-base font-bold flex items-center justify-center hover:bg-[#5C241C] transition-colors active:scale-95"
-              >
-                -
-              </button>
-              <span class="w-16 sm:w-20 text-center font-mono font-bold text-base sm:text-lg border-2 border-black py-2.5 bg-[#F8F7F5]">
-                {{ quantity }}
-              </span>
-              <button
-                type="button"
-                @click="quantity = Math.min(10, quantity + 1)"
-                class="w-11 h-11 sm:w-12 sm:h-12 bg-black text-white font-mono text-base font-bold flex items-center justify-center hover:bg-[#5C241C] transition-colors active:scale-95"
-              >
-                +
-              </button>
-              <span class="font-mono text-xs text-black/70 font-semibold pl-1">
-                {{ quantity > 1 ? `${quantity} places solo` : '1 place solo' }}
-              </span>
+        <form @submit.prevent="handleSubmit" class="space-y-6">
+          
+          <!-- Nom & Email Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="space-y-2">
+              <label class="block font-mono text-xs text-[#84848A] uppercase tracking-wider">
+                [ 01 // NOM COMPLET ] *
+              </label>
+              <div class="relative">
+                <input
+                  v-model="fullName"
+                  type="text"
+                  required
+                  placeholder="Ex: Auriol Edemessi"
+                  class="w-full bg-[#1A1A20] border border-white/10 rounded-xl px-4 py-3.5 text-sm text-white placeholder-white/20 focus:outline-none focus:border-[#52FF9D] focus:ring-1 focus:ring-[#52FF9D] transition-colors font-mono"
+                />
+              </div>
             </div>
-            <span class="text-[9px] sm:text-[10px] font-mono text-black/60 mt-1 block">
-              Tu viens entre ami(e)s ? Ajuste simplement le nombre de places ici.
-            </span>
-          </div>
-        </div>
 
-        <!-- Row 3: Karaoké Favorite Song (Fun touch) -->
-        <div>
-          <label class="block font-mono text-xs font-bold uppercase tracking-wider text-black mb-1.5 flex items-center gap-1.5">
-            <Music class="w-3.5 h-3.5 text-purple-600" />
-            <span>CHANSON POUR LE KARAOKÉ (OPTIONNEL)</span>
-          </label>
-          <input
-            v-model="karaokeSong"
-            type="text"
-            placeholder="Ex : Céline Dion, Burna Boy, Asake, Dadju, Vano Baby, Tayc..."
-            class="w-full bg-[#F8F7F5] border-2 border-black p-3 text-sm font-sans focus:outline-none focus:bg-white transition-colors"
-          />
-        </div>
-
-        <!-- Order Summary Recap Box -->
-        <div class="bg-[#F4EBD9] border-2 border-black p-4 sm:p-6 space-y-2.5">
-          <div class="flex justify-between items-center text-[11px] sm:text-xs font-mono font-bold border-b border-black/20 pb-2">
-            <span class="uppercase">RÉSUMÉ DE LA COMMANDE :</span>
-            <span class="text-[#5C241C]">Pass Cinéclub Flemmard (x{{ quantity }})</span>
+            <div class="space-y-2">
+              <label class="block font-mono text-xs text-[#84848A] uppercase tracking-wider">
+                [ 02 // EMAIL ] *
+              </label>
+              <div class="relative">
+                <input
+                  v-model="email"
+                  type="email"
+                  required
+                  placeholder="nom@exemple.com"
+                  class="w-full bg-[#1A1A20] border border-white/10 rounded-xl px-4 py-3.5 text-sm text-white placeholder-white/20 focus:outline-none focus:border-[#52FF9D] focus:ring-1 focus:ring-[#52FF9D] transition-colors font-mono"
+                />
+              </div>
+            </div>
           </div>
 
-          <div class="flex justify-between items-center text-sm sm:text-lg font-heading font-black text-black pt-1">
-            <span>MONTANT TOTAL :</span>
-            <span class="text-xl sm:text-2xl text-[#2B78C4]">
-              {{ calculatedTotal.toLocaleString('fr-FR') }} FCFA
-            </span>
-          </div>
-          <p class="text-[9px] sm:text-[10px] font-mono text-black/60">
-            ℹ️ Redirection vers WhatsApp (+229 01 91 31 93 57) avec le récapitulatif pré-rempli pour effectuer le paiement Mobile Money (MTN MoMo).
-          </p>
-        </div>
+          <!-- Phone WhatsApp & Quantity -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="space-y-2">
+              <label class="block font-mono text-xs text-[#84848A] uppercase tracking-wider">
+                [ 03 // NUMÉRO WHATSAPP ] *
+              </label>
+              <div class="relative">
+                <input
+                  v-model="whatsappPhone"
+                  type="tel"
+                  required
+                  placeholder="Ex: +229 97 00 00 00"
+                  class="w-full bg-[#1A1A20] border border-white/10 rounded-xl px-4 py-3.5 text-sm text-white placeholder-white/20 focus:outline-none focus:border-[#52FF9D] focus:ring-1 focus:ring-[#52FF9D] transition-colors font-mono"
+                />
+              </div>
+            </div>
 
-        <!-- Submit Button -->
-        <div>
+            <div class="space-y-2">
+              <label class="block font-mono text-xs text-[#84848A] uppercase tracking-wider">
+                [ 04 // NOMBRE DE PLACES ]
+              </label>
+              <div class="flex items-center gap-3">
+                <button
+                  type="button"
+                  @click="decrement"
+                  class="w-12 h-12 rounded-xl bg-[#1A1A20] border border-white/10 hover:border-white/30 flex items-center justify-center text-white transition-colors cursor-pointer"
+                >
+                  <Minus class="w-4 h-4" />
+                </button>
+                <div class="flex-1 bg-[#1A1A20] border border-white/10 rounded-xl py-3 text-center font-mono font-bold text-lg text-white">
+                  {{ quantity }} {{ quantity > 1 ? 'Places' : 'Place' }}
+                </div>
+                <button
+                  type="button"
+                  @click="increment"
+                  class="w-12 h-12 rounded-xl bg-[#1A1A20] border border-white/10 hover:border-white/30 flex items-center justify-center text-white transition-colors cursor-pointer"
+                >
+                  <Plus class="w-4 h-4" />
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Chanson Karaoké (Optionnel) -->
+          <div class="space-y-2">
+            <label class="block font-mono text-xs text-[#84848A] uppercase tracking-wider">
+              [ 05 // UNE CHANSON QUE TU VEUX CHANTER AU KARAOKÉ ? ] (OPTIONNEL)
+            </label>
+            <input
+              v-model="karaokeSong"
+              type="text"
+              placeholder="Ex: Burna Boy - Last Last, Céline Dion, Stromae..."
+              class="w-full bg-[#1A1A20] border border-white/10 rounded-xl px-4 py-3.5 text-sm text-white placeholder-white/20 focus:outline-none focus:border-[#52FF9D] focus:ring-1 focus:ring-[#52FF9D] transition-colors font-mono"
+            />
+          </div>
+
+          <!-- Total Calculation Banner -->
+          <div class="p-5 rounded-2xl bg-[#1A1A20] border border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div>
+              <span class="block font-mono text-xs text-[#84848A] uppercase tracking-wider">TOTAL À RÉGLER VIA MOBILE MONEY</span>
+              <span class="font-mono text-xs text-white/50">Pass Solo : 3 000 FCFA × {{ quantity }}</span>
+            </div>
+            <div class="text-right flex items-baseline gap-2">
+              <span class="font-heading font-black text-3xl sm:text-4xl text-[#52FF9D]">
+                {{ calculatedTotal.toLocaleString('fr-FR') }}
+              </span>
+              <span class="font-mono text-xs text-white/80 uppercase">FCFA</span>
+            </div>
+          </div>
+
+          <!-- Submit Button -->
           <button
             type="submit"
             :disabled="isSubmitting"
-            class="w-full py-4 sm:py-5 bg-[#25D366] hover:bg-[#1EBE5D] text-black border-2 border-black font-mono font-black text-xs sm:text-sm tracking-wider sm:tracking-widest uppercase transition-all flex items-center justify-center gap-2 sm:gap-3 shadow-[4px_4px_0px_0px_#000000] sm:shadow-[6px_6px_0px_0px_#000000] active:scale-98 cursor-pointer"
+            class="w-full py-4 sm:py-5 rounded-full bg-white text-black font-mono font-bold text-xs sm:text-sm tracking-wider uppercase hover:bg-[#52FF9D] hover:shadow-[0_0_30px_rgba(82,255,157,0.4)] transition-all flex items-center justify-center gap-3 cursor-pointer transform active:scale-98 disabled:opacity-50"
           >
-            <MessageCircle class="w-5 h-5 sm:w-6 sm:h-6 fill-current shrink-0" />
-            <span class="truncate">{{ isSubmitting ? 'OUVERTURE...' : `RÉSERVER SUR WHATSAPP (${calculatedTotal.toLocaleString('fr-FR')} FCFA)` }}</span>
-            <ArrowRight class="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
+            <MessageCircle class="w-4 h-4 text-emerald-700" />
+            <span>{{ isSubmitting ? 'PATIENTEZ...' : 'VALIDER MA RÉSERVATION VIA WHATSAPP' }}</span>
+            <ArrowUpRight class="w-4 h-4" />
           </button>
-        </div>
 
-        <!-- Security & Reassurance -->
-        <div class="pt-3 border-t border-black/10 flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-[10px] sm:text-[11px] font-mono text-black/70 text-center">
-          <div class="flex items-center gap-1">
-            <ShieldCheck class="w-3.5 h-3.5 text-emerald-600" />
-            <span>Numéro Officiel : 01 91 31 93 57</span>
-          </div>
-          <div class="flex items-center gap-1">
-            <CheckCircle2 class="w-3.5 h-3.5 text-emerald-600" />
-            <span>Paiement MTN MoMo</span>
-          </div>
-        </div>
+          <!-- Disclaimer / Legal Note in Monodrift style -->
+          <p class="text-center font-mono text-[11px] text-[#71717A] pt-2">
+            En envoyant ce formulaire, tu es redirigé vers le WhatsApp officiel de Monsieur Flemme. Aucune donnée n'est revendue.
+          </p>
 
-      </form>
+        </form>
+
+      </div>
 
     </div>
   </section>

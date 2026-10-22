@@ -1,82 +1,214 @@
 @import "tailwindcss";
 
+@theme {
+  --color-ink: #0b0908;
+  --color-ink-2: #141110;
+  --color-ink-3: #1f1a17;
+  --color-bone: #f2e8d5;
+  --color-bone-dim: #b9ae9b;
+  --color-blood: #ff2d20;
+  --color-blood-deep: #8f0f09;
+  --color-cocoa: #6a312d;
+  --color-flemme: #3388f8;
+
+  --font-display: 'Anton', 'Impact', sans-serif;
+  --font-marker: 'Permanent Marker', cursive;
+  --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+
 @layer base {
-  :root {
-    --font-logo: 'Lilita One', 'Syne', sans-serif;
-    --font-heading: 'Lilita One', 'Syne', sans-serif;
-    --font-sans: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
-    --font-mono: 'Space Grotesk', monospace;
-    --brand-blue: #2B78C4;
-    --brand-brown: #5C241C;
-    --brand-cream: #F8F7F5;
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
   }
 
   body {
-    background-color: var(--brand-cream);
-    color: #111111;
+    background-color: var(--color-ink);
+    color: var(--color-bone);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-heading);
-    letter-spacing: 0.02em;
+  /* Grain papier sur toute la page */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    pointer-events: none;
+    opacity: 0.09;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  ::selection {
+    background: var(--color-blood);
+    color: var(--color-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-blood);
+    outline-offset: 3px;
   }
 }
 
-.font-logo {
-  font-family: 'Lilita One', 'Syne', cursive, sans-serif;
+@layer components {
+  .label-mono {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .display {
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    line-height: 0.86;
+    letter-spacing: 0.005em;
+  }
+
+  .text-outline {
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1.5px currentColor;
+  }
+
+  /* Bouton principal : rouge, ombre portée dure façon sticker */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 1rem 1.6rem;
+    border-radius: 9999px;
+    background: var(--color-blood);
+    color: var(--color-ink);
+    font-weight: 800;
+    font-size: 0.95rem;
+    box-shadow: 4px 4px 0 var(--color-bone);
+    transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+    cursor: pointer;
+  }
+  .btn-primary:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--color-bone);
+  }
+  .btn-primary:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0 var(--color-bone);
+  }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    padding: 1rem 1.4rem;
+    border-radius: 9999px;
+    border: 1px solid color-mix(in srgb, var(--color-bone) 25%, transparent);
+    color: var(--color-bone);
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: border-color 0.2s, background-color 0.2s;
+    cursor: pointer;
+  }
+  .btn-ghost:hover {
+    border-color: var(--color-bone);
+    background: color-mix(in srgb, var(--color-bone) 6%, transparent);
+  }
+
+  /* Papier crème déchiré, comme les étiquettes de l'affiche */
+  .paper {
+    background-color: var(--color-bone);
+    color: var(--color-ink);
+    background-image:
+      radial-gradient(circle at 20% 10%, rgb(255 255 255 / 0.5), transparent 40%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.6' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0.35 0 0 0 0 0.25 0 0 0 0 0.15 0 0 0 0.18 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p)'/%3E%3C/svg%3E");
+  }
+  .torn {
+    clip-path: polygon(0% 2%, 4% 0%, 9% 1.5%, 15% 0.3%, 22% 1.8%, 30% 0%, 37% 1.2%, 45% 0.2%, 53% 1.6%, 61% 0%, 68% 1.4%, 76% 0.3%, 84% 1.7%, 91% 0.2%, 96% 1.3%, 100% 0%, 99.2% 12%, 100% 25%, 99.4% 38%, 100% 52%, 99.3% 66%, 100% 80%, 99.5% 92%, 100% 100%, 95% 98.6%, 88% 100%, 81% 98.4%, 73% 99.8%, 66% 98.5%, 58% 100%, 50% 98.6%, 42% 99.7%, 35% 98.3%, 27% 99.9%, 19% 98.5%, 12% 99.8%, 6% 98.4%, 0% 100%, 0.7% 88%, 0% 74%, 0.6% 60%, 0% 46%, 0.8% 32%, 0% 18%);
+  }
+
+  .tape {
+    position: absolute;
+    width: 6.5rem;
+    height: 1.9rem;
+    background: color-mix(in srgb, var(--color-bone) 55%, transparent);
+    box-shadow: 0 1px 3px rgb(0 0 0 / 0.25);
+    backdrop-filter: blur(1px);
+    z-index: 2;
+  }
+
+  .hairline {
+    border-color: color-mix(in srgb, var(--color-bone) 12%, transparent);
+  }
 }
 
-.font-heading {
-  font-family: 'Lilita One', 'Syne', cursive, sans-serif;
-}
-
-.font-sans {
-  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
-}
-
-.font-mono {
-  font-family: 'Space Grotesk', monospace;
-}
-
-/* Animations */
+/* Bandeau défilant */
 @keyframes marquee {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(-50%); }
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
-
 .animate-marquee {
-  display: flex;
-  width: max-content;
-  animation: marquee 22s linear infinite;
+  animation: marquee 32s linear infinite;
 }
 
-.animate-marquee:hover {
-  animation-play-state: paused;
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(var(--r, 0deg)); }
+  50% { transform: translateY(-10px) rotate(var(--r, 0deg)); }
 }
-
-@keyframes float-slow {
-  0%, 100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-8px) rotate(3deg);
-  }
-}
-
 .animate-float {
-  animation: float-slow 4s ease-in-out infinite;
+  animation: float 5s ease-in-out infinite;
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
+@keyframes spin-slow {
+  to { transform: rotate(360deg); }
 }
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
+.animate-spin-slow {
+  animation: spin-slow 22s linear infinite;
 }
-::-webkit-scrollbar-thumb {
-  background: #111;
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  45% { opacity: 1; }
+  47% { opacity: 0.55; }
+  49% { opacity: 1; }
+  72% { opacity: 0.8; }
+  74% { opacity: 1; }
 }
+.animate-flicker {
+  animation: flicker 4s steps(1) infinite;
+}
+
+@keyframes eq {
+  0%, 100% { transform: scaleY(0.25); }
+  50% { transform: scaleY(1); }
+}
+
+/* Apparition au scroll (directive v-reveal) */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition-delay: var(--delay, 0ms);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .animate-marquee,
+  .animate-float,
+  .animate-spin-slow,
+  .animate-flicker { animation: none; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--color-ink); }
+::-webkit-scrollbar-thumb { background: var(--color-ink-3); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-blood); }

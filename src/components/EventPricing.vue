@@ -1,5 +1,5 @@
 <script setup>
-import { Check, Ticket, Sparkles, ArrowRight } from 'lucide-vue-next'
+import { Check, Ticket, Sparkles, ArrowUpRight, ShieldCheck } from 'lucide-vue-next'
 
 const emit = defineEmits(['select-formula'])
 
@@ -8,15 +8,15 @@ const soloPass = {
   name: 'PASS SOLO FLEMMARD',
   price: 3000,
   priceDisplay: '3 000 FCFA',
-  badge: 'TARIF UNIQUE // SESSION 01',
-  description: 'Ton pass complet tout-en-un pour la soirée Flemmard Club.',
+  badge: 'TARIF UNIQUE TOUT COMPRIS',
+  description: 'Ton pass complet pour l\'ensemble de l\'expérience du Flemmard Club (20h00 - Minuit).',
   features: [
     '1 Entrée complète pour la soirée (20h00 - Minuit)',
-    'Accès à la projection du film culte sur écran géant',
-    'Participation au Débrief sans filtre & échanges',
-    'Popcorn savoureux & rafraîchissements inclus',
-    'Accès au micro pour la session Karaoké & Vibes',
-    'Pack de stickers exclusifs Monsieur Flemme offerts'
+    'Projection privée du film culte sur écran géant acoustique',
+    'Participation active au Débrief sans filtre & échanges spontanés',
+    'Popcorn chaud & rafraîchissements inclus sans supplément',
+    'Session Karaoké & micro ouvert pour chanter en choeur',
+    'Stickers exclusifs & goodies Monsieur Flemme offerts'
   ]
 }
 
@@ -30,74 +30,99 @@ function chooseFormula() {
 </script>
 
 <template>
-  <section id="formules" class="bg-[#F4EBD9] border-y-2 border-black py-12 sm:py-24">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+  <section id="formules" class="relative bg-[#0E0E11] text-white border-y border-white/10 py-16 sm:py-24 monodrift-dots">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <!-- Section Header -->
-      <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
-        <div class="inline-flex items-center gap-1.5 px-3 py-1 bg-black text-white text-[10px] sm:text-xs font-mono font-bold tracking-widest uppercase mb-2 sm:mb-3">
-          <Sparkles class="w-3.5 h-3.5 text-amber-300" />
-          <span>TARIF UNIQUE & TRANSPARENT</span>
-        </div>
-        <h2 class="font-heading font-black text-2xl sm:text-4xl md:text-5xl uppercase tracking-tight text-black mt-1">
-          LE PASS SOIRÉE
+      <div class="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
+        <span class="inline-block font-mono text-xs text-[#52FF9D] uppercase tracking-widest mb-3">
+          [ 02 // TARIFICATION TRANSPARENTE ]
+        </span>
+        <h2 class="font-heading font-black text-3xl sm:text-5xl lg:text-6xl uppercase tracking-tight text-white leading-none">
+          UN TARIF UNIQUE. TOUT COMPRIS.
         </h2>
-        <p class="font-sans text-xs sm:text-sm text-black/70 mt-2 px-2">
-          Un pass unique tout compris pour profiter pleinement de la soirée sans frais cachés.
+        <p class="font-sans text-sm sm:text-base text-[#8E8E93] mt-3">
+          Zéro surprise, zéro supplément. Tout est inclus du premier pop-corn jusqu'à la dernière note du karaoké.
         </p>
       </div>
 
-      <!-- Single Highlighted Pricing Card -->
-      <div class="max-w-xl mx-auto bg-white border-2 border-black p-6 sm:p-10 shadow-[8px_8px_0px_0px_#5C241C] sm:shadow-[12px_12px_0px_0px_#5C241C] relative">
+      <!-- Monodrift Luxury Dark Pricing Card -->
+      <div class="max-w-2xl mx-auto relative group">
         
-        <!-- Badge -->
-        <div class="flex items-center justify-between border-b-2 border-black/10 pb-4 mb-5">
-          <span class="inline-block font-mono text-[10px] sm:text-xs font-black uppercase px-3 py-1 bg-black text-white border border-black">
-            {{ soloPass.badge }}
-          </span>
-          <span class="font-mono text-xs font-bold text-[#5C241C] uppercase tracking-wider">
-            30 PLACES SEULEMENT
-          </span>
-        </div>
+        <!-- Glow Effect behind the card -->
+        <div class="absolute -inset-1 rounded-3xl bg-gradient-to-r from-[#2B78C4]/20 via-[#52FF9D]/20 to-purple-500/20 blur-xl opacity-50 group-hover:opacity-100 transition duration-500"></div>
 
-        <!-- Formula Name & Price -->
-        <div class="border-b-2 border-black/10 pb-5 mb-6">
-          <h3 class="font-heading font-black text-2xl sm:text-3xl text-black uppercase">
-            {{ soloPass.name }}
-          </h3>
-          <div class="mt-3 flex items-baseline gap-2">
-            <span class="font-heading font-black text-4xl sm:text-5xl text-[#2B78C4]">
-              {{ soloPass.priceDisplay }}
+        <div class="relative bg-[#141418] border border-white/15 rounded-3xl p-6 sm:p-12 overflow-hidden shadow-2xl">
+          
+          <!-- Top Row Badge -->
+          <div class="flex flex-wrap items-center justify-between gap-3 pb-6 border-b border-white/10 text-xs font-mono">
+            <span class="px-3 py-1 rounded-full bg-white/5 border border-white/15 text-[#52FF9D] font-bold tracking-wider uppercase">
+              {{ soloPass.badge }}
             </span>
-            <span class="font-mono text-xs text-black/60 font-bold uppercase">/ PLACE</span>
+            <span class="text-[#A0A0A5] tracking-wider uppercase">
+              30 PLACES SEULEMENT // ÉDITION #02
+            </span>
           </div>
-          <p class="font-sans text-xs sm:text-sm text-black/75 mt-2">
-            {{ soloPass.description }}
-          </p>
+
+          <!-- Price Display -->
+          <div class="pt-8 pb-6 border-b border-white/10">
+            <span class="font-mono text-xs uppercase tracking-widest text-[#84848A] block mb-2">
+              [ ACCÈS INTÉGRAL ]
+            </span>
+            <h3 class="font-heading font-black text-2xl sm:text-3xl text-white uppercase">
+              {{ soloPass.name }}
+            </h3>
+
+            <div class="mt-4 flex items-baseline gap-3">
+              <span class="font-heading font-black text-5xl sm:text-6xl text-white tracking-tight">
+                {{ soloPass.priceDisplay }}
+              </span>
+              <span class="font-mono text-xs sm:text-sm text-[#84848A] uppercase">/ PAR PERSONNE</span>
+            </div>
+
+            <p class="font-sans text-sm text-[#A0A0A5] mt-3 leading-relaxed">
+              {{ soloPass.description }}
+            </p>
+          </div>
+
+          <!-- Features List -->
+          <div class="py-8 space-y-3.5">
+            <span class="font-mono text-[11px] text-white/50 uppercase tracking-widest block mb-4">
+              [ CE QUI EST INCLUS DANS TON PASS ]
+            </span>
+            <div 
+              v-for="feat in soloPass.features" 
+              :key="feat" 
+              class="flex items-start gap-3 text-xs sm:text-sm font-mono text-[#D0D0D4]"
+            >
+              <div class="w-5 h-5 rounded-full bg-[#52FF9D]/10 border border-[#52FF9D]/30 flex items-center justify-center shrink-0 mt-0.5">
+                <Check class="w-3 h-3 text-[#52FF9D]" />
+              </div>
+              <span>{{ feat }}</span>
+            </div>
+          </div>
+
+          <!-- Action Button -->
+          <div class="pt-6 border-t border-white/10">
+            <button
+              @click="chooseFormula"
+              class="w-full py-4 sm:py-5 rounded-full bg-white text-black font-mono font-bold text-xs sm:text-sm tracking-wider uppercase hover:bg-[#52FF9D] hover:shadow-[0_0_30px_rgba(82,255,157,0.4)] transition-all flex items-center justify-center gap-3 cursor-pointer transform active:scale-98"
+            >
+              <Ticket class="w-4 h-4 sm:w-5 sm:h-5" />
+              <span>SÉLECTIONNER MON PASS MAINTENANT</span>
+              <ArrowUpRight class="w-4 h-4 sm:w-5 sm:h-5" />
+            </button>
+
+            <!-- Group Hint -->
+            <div class="mt-5 p-3.5 rounded-xl bg-white/5 border border-white/10 flex items-center gap-3 text-xs font-mono text-[#84848A]">
+              <ShieldCheck class="w-4 h-4 text-[#52FF9D] shrink-0" />
+              <span>
+                <strong>Tu viens en groupe ?</strong> Indique simplement le nombre de places (ex: 2, 3 ou plus) dans le formulaire ci-dessous.
+              </span>
+            </div>
+          </div>
+
         </div>
-
-        <!-- Features List -->
-        <ul class="space-y-3 mb-8 text-xs sm:text-sm font-mono text-black/85">
-          <li v-for="feat in soloPass.features" :key="feat" class="flex items-start gap-2.5">
-            <Check class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-            <span>{{ feat }}</span>
-          </li>
-        </ul>
-
-        <!-- Action Button -->
-        <button
-          @click="chooseFormula"
-          class="w-full py-4 sm:py-5 bg-black hover:bg-[#5C241C] text-white text-xs sm:text-sm font-mono font-bold tracking-widest uppercase transition-all flex items-center justify-center gap-3 border-2 border-black cursor-pointer shadow-[4px_4px_0px_0px_#2B78C4] active:scale-98"
-        >
-          <Ticket class="w-4 h-4 sm:w-5 sm:h-5" />
-          <span>PRENDRE MA PLACE MAINTENANT</span>
-          <ArrowRight class="w-4 h-4 sm:w-5 sm:h-5" />
-        </button>
-
-        <!-- Notice for Friends -->
-        <p class="text-center font-mono text-[10px] sm:text-xs text-black/60 mt-4">
-          💡 <strong>Tu viens en groupe ou entre ami(e)s ?</strong> Chacun doit payer son pass solo (sélectionne le nombre de places dans le formulaire ci-dessous).
-        </p>
 
       </div>
 

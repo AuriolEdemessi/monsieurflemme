@@ -1,153 +1,120 @@
 <script setup>
-import { ArrowDownRight, Film, MessageSquare, Mic, Sparkles, MapPin, Calendar, Clock, Ticket } from 'lucide-vue-next'
+import { ArrowRight, ArrowDown } from 'lucide-vue-next'
+import { event, formatPrice } from '../data/event'
+import { useCountdown, pad } from '../composables/useCountdown'
+import CrownDoodle from './ui/CrownDoodle.vue'
+import BrushStroke from './ui/BrushStroke.vue'
 
-function scrollToForm() {
-  const el = document.getElementById('inscription')
-  if (el) {
-    el.scrollIntoView({ behavior: 'smooth' })
-  }
-}
+const emit = defineEmits(['openTicket'])
+
+const { parts, isOver } = useCountdown(event.startsAt)
+
+const facts = [
+  { label: 'Quand', value: event.dateShort, sub: event.time },
+  { label: 'Où', value: event.area, sub: event.venue },
+  { label: 'Ticket', value: formatPrice(event.price), sub: `${event.capacity} places` },
+]
 </script>
 
 <template>
-  <section class="relative bg-[#F4EBD9] border-b-2 border-black overflow-hidden">
-    <!-- Grid pattern overlay -->
-    <div class="absolute inset-0 bg-[linear-gradient(to_right,#0000000a_1px,transparent_1px),linear-gradient(to_bottom,#0000000a_1px,transparent_1px)] bg-[size:28px_28px] sm:bg-[size:36px_36px] pointer-events-none"></div>
+  <section id="hero" class="relative overflow-hidden pt-24 pb-16 sm:pt-32 lg:pb-28">
+    <!-- Lueur rouge -->
+    <div class="pointer-events-none absolute -right-40 top-10 h-[640px] w-[640px] rounded-full bg-blood/25 blur-[140px]"></div>
+    <div class="pointer-events-none absolute -left-40 bottom-0 h-[420px] w-[420px] rounded-full bg-blood-deep/30 blur-[120px]"></div>
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-12 sm:pt-14 sm:pb-20 lg:pt-16 lg:pb-24 relative z-10">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-        
-        <!-- Left: Text & Badges -->
-        <div class="lg:col-span-7 space-y-5 sm:space-y-6">
-          
-          <!-- Badges bar -->
-          <div class="flex flex-wrap items-center gap-2">
-            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 bg-black text-white text-[10px] sm:text-[11px] font-mono uppercase tracking-widest font-bold">
-              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-              FLEMMARD CLUB // ÉDITION #02
-            </span>
-            <span class="inline-flex items-center gap-1 px-2.5 py-1 bg-[#5C241C] text-white text-[10px] sm:text-[11px] font-mono uppercase tracking-widest font-bold">
-              30 PLACES MAX
-            </span>
-            <span class="inline-flex items-center gap-1 px-2.5 py-1 bg-[#2B78C4] text-white text-[10px] sm:text-[11px] font-mono uppercase tracking-widest font-bold">
-              PASS SOLO 3 000 FCFA
-            </span>
+    <div class="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-6 px-4 sm:px-6 lg:grid-cols-12 lg:gap-4 lg:px-8">
+      <!-- Texte -->
+      <div class="relative z-10 order-2 lg:order-1 lg:col-span-7">
+        <p class="label-mono flex items-center gap-3 text-bone-dim">
+          <span class="inline-block h-px w-8 bg-blood"></span>
+          {{ event.club }} présente
+        </p>
+
+        <h1 class="mt-5 select-none">
+          <span class="display block text-[clamp(3.2rem,16.5vw,11.5rem)] text-bone">
+            Hallo<span class="text-blood animate-flicker">w</span>een
+          </span>
+          <span class="relative -mt-2 ml-1 inline-block -rotate-3 sm:-mt-4">
+            <span class="font-marker text-[clamp(2rem,6vw,3.6rem)] leading-none text-blood">{{ event.subtitle }}</span>
+            <BrushStroke class="absolute -bottom-3 left-0 h-3 w-full text-bone/90" />
+          </span>
+        </h1>
+
+        <p class="mt-8 max-w-md text-lg text-bone-dim sm:text-xl">
+          {{ event.tagline }} Film d'horreur, karaoké, jeux et
+          <span class="font-semibold text-bone">music by {{ event.dj }}</span>.
+        </p>
+
+        <!-- Infos clés -->
+        <dl class="mt-8 grid max-w-xl grid-cols-1 border-y hairline sm:grid-cols-3">
+          <div
+            v-for="(fact, i) in facts"
+            :key="fact.label"
+            :class="[
+              'flex items-baseline gap-4 py-3 sm:block sm:py-4',
+              i > 0 ? 'border-t hairline sm:border-l sm:border-t-0 sm:pl-5' : 'sm:pr-3',
+            ]"
+          >
+            <dt class="label-mono w-16 shrink-0 text-blood sm:w-auto">{{ fact.label }}</dt>
+            <dd class="display text-xl text-bone sm:mt-2 sm:text-2xl">{{ fact.value }}</dd>
+            <dd class="ml-auto text-sm text-bone-dim sm:ml-0 sm:mt-1">{{ fact.sub }}</dd>
+          </div>
+        </dl>
+
+        <div class="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
+          <button @click="emit('openTicket')" class="btn-primary">
+            Réserver ma place
+            <ArrowRight class="h-4 w-4" />
+          </button>
+          <a href="#programme" class="btn-ghost">
+            Voir le programme
+            <ArrowDown class="h-4 w-4" />
+          </a>
+        </div>
+
+        <!-- Compte à rebours -->
+        <div class="mt-8 flex items-center gap-4" aria-live="off">
+          <span class="relative flex h-2.5 w-2.5">
+            <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-blood opacity-70"></span>
+            <span class="relative inline-flex h-2.5 w-2.5 rounded-full bg-blood"></span>
+          </span>
+          <p v-if="!isOver" class="label-mono text-bone-dim">
+            J-{{ parts.days }}
+            <span class="ml-2 tabular-nums text-bone">{{ pad(parts.hours) }}:{{ pad(parts.minutes) }}:{{ pad(parts.seconds) }}</span>
+          </p>
+          <p v-else class="label-mono text-bone">C'est parti. On se voit au club.</p>
+        </div>
+      </div>
+
+      <!-- Visuel -->
+      <div class="relative order-1 mx-auto w-full max-w-[270px] sm:max-w-[400px] lg:order-2 lg:col-span-5 lg:max-w-none">
+        <div class="relative aspect-[530/630]">
+          <img
+            :src="event.heroVisual"
+            alt="La mascotte du Flemmard Club en citrouille, chapka sur la tête, sucette lumineuse à la main"
+            class="absolute inset-0 h-full w-full object-contain"
+            fetchpriority="high"
+          />
+
+          <!-- Note manuscrite -->
+          <div class="absolute -top-2 right-0 hidden max-w-[11rem] rotate-6 text-right sm:block">
+            <CrownDoodle class="ml-auto h-6 w-8 text-bone" />
+            <p class="mt-1 font-marker text-sm leading-snug text-bone">{{ event.motto }}</p>
           </div>
 
-          <!-- Main Title with Lilita One logo typography -->
-          <div>
-            <h1 class="font-logo text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight uppercase leading-[0.95] sm:leading-[0.92] text-black">
-              LA SOIRÉE <br />
-              <span class="text-[#2B78C4]">FLEMME</span> & CHILL.
-            </h1>
-            <p class="font-mono text-xs sm:text-base md:text-lg text-[#5C241C] font-bold uppercase tracking-wider sm:tracking-widest mt-2 sm:mt-3">
-              CINÉ • DÉBRIEF • KARAOKÉ
+          <!-- Sticker dress code -->
+          <div
+            class="animate-float absolute -bottom-2 -right-6 grid h-28 w-28 place-items-center sm:right-0 sm:h-36 sm:w-36 lg:-right-4"
+            style="--r: 10deg"
+          >
+            <svg viewBox="0 0 100 100" class="absolute inset-0 h-full w-full text-blood" aria-hidden="true">
+              <path fill="currentColor" d="M50 3c9 0 14 6 22 8s16 4 20 12 0 15 3 23 4 17-1 24-15 9-21 15-11 12-21 12-15-5-23-8-17-3-22-11-1-16-4-24-6-17-2-24 13-8 20-14S41 3 50 3Z" />
+            </svg>
+            <p class="relative px-4 text-center font-marker text-xs leading-tight text-ink sm:px-5 sm:text-base">
+              Viens en ton artiste préféré !
             </p>
           </div>
-
-          <!-- Narrative description -->
-          <p class="text-sm sm:text-base md:text-lg text-black/80 font-sans max-w-xl leading-relaxed">
-            Même les grands rêves ont besoin de pauses. On pose les téléphones, on regarde un film culte qui fait réfléchir, on partage nos avis sans filtre et on finit au micro pour un karaoké libérateur ! Popcorn + Good Vibes garantis.
-          </p>
-
-          <!-- Quick Event Details Pills -->
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-3 pt-1">
-            <div class="bg-white border-2 border-black p-3 flex items-center gap-3 shadow-[3px_3px_0px_0px_#000000]">
-              <Calendar class="w-4 h-4 sm:w-5 sm:h-5 text-[#2B78C4] shrink-0" />
-              <div>
-                <span class="block font-mono text-[9px] sm:text-[10px] text-black/60 uppercase font-bold">DATE</span>
-                <span class="font-mono text-xs font-bold text-black">Vendredi 02 Octobre 2026</span>
-              </div>
-            </div>
-
-            <div class="bg-white border-2 border-black p-3 flex items-center gap-3 shadow-[3px_3px_0px_0px_#000000]">
-              <Clock class="w-4 h-4 sm:w-5 sm:h-5 text-[#5C241C] shrink-0" />
-              <div>
-                <span class="block font-mono text-[9px] sm:text-[10px] text-black/60 uppercase font-bold">HORAIRE</span>
-                <span class="font-mono text-xs font-bold text-black">20H00 PILE</span>
-              </div>
-            </div>
-
-            <div class="bg-white border-2 border-black p-3 flex items-center gap-3 shadow-[3px_3px_0px_0px_#000000]">
-              <MapPin class="w-4 h-4 sm:w-5 sm:h-5 text-emerald-600 shrink-0" />
-              <div>
-                <span class="block font-mono text-[9px] sm:text-[10px] text-black/60 uppercase font-bold">LIEU</span>
-                <span class="font-mono text-xs font-bold text-black">Akpakpa Centre</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- CTA Buttons -->
-          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 pt-2">
-            <button
-              @click="scrollToForm"
-              class="inline-flex items-center justify-center gap-2 sm:gap-3 px-6 sm:px-8 py-3.5 sm:py-4 bg-black text-white text-xs sm:text-sm font-mono font-bold tracking-widest uppercase hover:bg-[#5C241C] transition-all transform active:scale-95 shadow-[4px_4px_0px_0px_#2B78C4] cursor-pointer"
-            >
-              <Ticket class="w-4 h-4 sm:w-5 sm:h-5" />
-              <span>RÉSERVER MON PASS (3 000F)</span>
-              <ArrowDownRight class="w-4 h-4 sm:w-5 sm:h-5" />
-            </button>
-
-            <a
-              href="https://wa.me/2290191319357?text=Bonjour%20l'équipe%20Monsieur%20Flemme%2C%20je%20souhaite%20des%20infos%20sur%20le%20Cinéclub%20Édition%20%2302%20(02%20Octobre%202026%20%E2%80%94%20Akpakpa%20Centre)"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3.5 sm:py-4 bg-[#25D366] text-black font-mono font-bold text-xs tracking-wider uppercase border-2 border-black hover:bg-emerald-400 transition-all shadow-[3px_3px_0px_0px_#000000]"
-            >
-              <span>WHATSAPP DIRECT</span>
-            </a>
-          </div>
-
         </div>
-
-        <!-- Right: Official Poster Card with Neo-brutalist styling -->
-        <div class="lg:col-span-5 relative flex justify-center items-center">
-          <div class="relative w-full max-w-sm sm:max-w-md bg-white border-2 border-black p-3 sm:p-4 shadow-[8px_8px_0px_0px_#5C241C] sm:shadow-[12px_12px_0px_0px_#5C241C] flex flex-col justify-between overflow-hidden group">
-            
-            <!-- Frame Header -->
-            <div class="flex items-center justify-between border-b-2 border-black pb-2 sm:pb-2.5 mb-3">
-              <span class="font-mono text-[10px] sm:text-[11px] font-bold tracking-widest text-black flex items-center gap-1.5">
-                <Sparkles class="w-3 h-3 text-[#2B78C4]" />
-                ÉDITION #02
-              </span>
-              <span class="font-mono text-[10px] sm:text-[11px] font-bold text-[#5C241C] bg-[#F4EBD9] px-2 py-0.5 border border-black">
-                3 000 FCFA
-              </span>
-            </div>
-
-            <!-- Central Poster Display -->
-            <div class="relative overflow-hidden border-2 border-black bg-neutral-900 group-hover:scale-[1.01] transition-transform duration-300">
-              <img 
-                src="/images/affiche-flemmard-club.jpg" 
-                alt="Affiche Officielle Flemmard Club - Ciné Débrief Karaoké" 
-                class="w-full h-auto object-cover block"
-              />
-              
-              <!-- Floating Overlay Badge -->
-              <div class="absolute top-2 right-2 bg-black text-white font-mono text-[9px] sm:text-[10px] font-bold px-2 py-1 uppercase tracking-wider border border-white/40 shadow-sm">
-                ON REMET ÇA 🎬
-              </div>
-            </div>
-
-            <!-- 3 Activities Quick Row inside card -->
-            <div class="border-t-2 border-black pt-3 mt-3 grid grid-cols-3 gap-1.5 sm:gap-2 text-center font-mono font-bold">
-              <div class="bg-[#F8F7F5] border border-black/20 p-1.5 sm:p-2 flex flex-col items-center">
-                <Film class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#2B78C4] mb-0.5" />
-                <span class="text-[9px] uppercase tracking-wider">CINÉ</span>
-              </div>
-              <div class="bg-[#F8F7F5] border border-black/20 p-1.5 sm:p-2 flex flex-col items-center">
-                <MessageSquare class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#5C241C] mb-0.5" />
-                <span class="text-[9px] uppercase tracking-wider">DÉBRIEF</span>
-              </div>
-              <div class="bg-[#F8F7F5] border border-black/20 p-1.5 sm:p-2 flex flex-col items-center">
-                <Mic class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-purple-600 mb-0.5" />
-                <span class="text-[9px] uppercase tracking-wider">KARAOKÉ</span>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
       </div>
     </div>
   </section>

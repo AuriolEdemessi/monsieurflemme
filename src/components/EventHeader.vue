@@ -1,118 +1,114 @@
 <script setup>
-import { ref } from 'vue'
-import { Ticket, Menu, X, MessageCircle } from 'lucide-vue-next'
+import { ref, onMounted, onUnmounted, watch } from 'vue'
+import { Menu, X, ArrowRight } from 'lucide-vue-next'
+import { event, formatPrice } from '../data/event'
 
-const mobileMenuOpen = ref(false)
+const emit = defineEmits(['openTicket'])
 
-function scrollToSection(id) {
-  mobileMenuOpen.value = false
-  const el = document.getElementById(id)
-  if (el) {
-    el.scrollIntoView({ behavior: 'smooth' })
-  }
+const links = [
+  { id: 'programme', label: 'Programme' },
+  { id: 'music', label: event.dj },
+  { id: 'dress-code', label: 'Dress code' },
+  { id: 'infos', label: 'Infos' },
+  { id: 'faq', label: 'FAQ' },
+]
+
+const scrolled = ref(false)
+const menuOpen = ref(false)
+
+function onScroll() {
+  scrolled.value = window.scrollY > 24
 }
+
+function go(id) {
+  menuOpen.value = false
+  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+}
+
+function book() {
+  menuOpen.value = false
+  emit('openTicket')
+}
+
+watch(menuOpen, (open) => {
+  document.documentElement.style.overflow = open ? 'hidden' : ''
+})
+
+onMounted(() => {
+  onScroll()
+  window.addEventListener('scroll', onScroll, { passive: true })
+})
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', onScroll)
+})
 </script>
 
 <template>
-  <header class="sticky top-0 z-40 bg-[#F8F7F5]/95 backdrop-blur-md border-b-2 border-black">
-    <!-- Announcement Bar -->
-    <div class="bg-black text-white text-[10px] sm:text-xs font-mono py-2 px-3 text-center tracking-wider uppercase overflow-hidden">
-      <div class="inline-flex items-center gap-2 sm:gap-4 font-bold">
-        <span>🎬 CINÉCLUB — ÉDITION #02</span>
-        <span class="text-amber-300">• VENDREDI 02 OCTOBRE 2026 — 20H</span>
-        <span class="text-emerald-400">• 3 000 FCFA</span>
-        <span class="hidden sm:inline">• AKPAKPA CENTRE</span>
-      </div>
-    </div>
+  <header
+    :class="[
+      'fixed inset-x-0 top-0 z-50 transition-all duration-300',
+      scrolled ? 'bg-ink/85 backdrop-blur-lg border-b hairline' : 'bg-transparent',
+    ]"
+  >
+    <div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:h-20 sm:px-6 lg:px-8">
+      <a href="#hero" @click.prevent="go('hero')" class="relative z-10 shrink-0" aria-label="Flemmard Club, retour en haut">
+        <img src="/brand/logo-flemmard-club.png" alt="Flemmard Club" class="h-9 w-auto -rotate-3 transition-transform duration-300 hover:rotate-0 sm:h-11" />
+      </a>
 
-    <!-- Main Navigation Bar -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16 sm:h-24">
-        
-        <!-- Logo with Flems mascot and Lilita One font matching the logo -->
-        <a href="#" class="group flex items-center gap-2 sm:gap-3">
-          <img 
-            src="/brand/Flems.png" 
-            alt="Monsieur Flemme" 
-            class="w-8 h-8 sm:w-12 sm:h-12 object-contain transition-transform duration-300 group-hover:rotate-12 group-hover:scale-110 shrink-0"
-          />
-          <div class="flex flex-col text-left">
-            <span class="font-logo text-lg sm:text-3xl lg:text-4xl uppercase tracking-normal text-black leading-none truncate">
-              MONSIEUR FLEMME
-            </span>
-            <span class="font-mono text-[8px] sm:text-[10px] tracking-[0.2em] sm:tracking-[0.25em] text-[#5C241C] font-bold uppercase mt-0.5">
-              FLEMMARD CLUB // LE CINÉCLUB
-            </span>
-          </div>
-        </a>
-
-        <!-- Desktop Links -->
-        <nav class="hidden md:flex items-center space-x-8 text-xs font-mono font-bold tracking-widest text-black/80">
-          <button @click="scrollToSection('programme')" class="hover:text-black uppercase transition-colors cursor-pointer">
-            LE PROGRAMME
-          </button>
-          <button @click="scrollToSection('formules')" class="hover:text-black uppercase transition-colors cursor-pointer">
-            LE PASS SOLO
-          </button>
-          <button @click="scrollToSection('lieu')" class="hover:text-black uppercase transition-colors cursor-pointer">
-            INFOS & LIEU
-          </button>
-          <button @click="scrollToSection('faq')" class="hover:text-black uppercase transition-colors cursor-pointer">
-            FAQ
-          </button>
-        </nav>
-
-        <!-- Right actions -->
-        <div class="flex items-center gap-2 sm:gap-4">
-          <!-- CTA Reservation Button (Desktop & Tablet) -->
-          <button
-            @click="scrollToSection('inscription')"
-            class="hidden sm:inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 bg-black text-white font-mono text-[11px] sm:text-xs font-bold tracking-wider uppercase hover:bg-[#5C241C] transition-all transform active:scale-95 shadow-[3px_3px_0px_0px_#2B78C4] cursor-pointer"
-          >
-            <Ticket class="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-            <span>RÉSERVER (3 000F)</span>
-          </button>
-
-          <!-- Quick Mobile CTA Icon Button -->
-          <button
-            @click="scrollToSection('inscription')"
-            class="sm:hidden p-2 bg-black text-white font-mono text-xs font-bold uppercase"
-            aria-label="Réserver"
-          >
-            <Ticket class="w-4 h-4" />
-          </button>
-
-          <!-- Mobile hamburger -->
-          <button
-            @click="mobileMenuOpen = !mobileMenuOpen"
-            class="p-2 text-black hover:opacity-70 focus:outline-none md:hidden"
-            aria-label="Menu"
-          >
-            <Menu v-if="!mobileMenuOpen" class="w-6 h-6" />
-            <X v-else class="w-6 h-6" />
-          </button>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- Mobile Drawer -->
-    <div v-if="mobileMenuOpen" class="md:hidden border-t-2 border-black bg-[#F8F7F5] px-6 py-6 space-y-4 animate-in slide-in-from-top-2 duration-200">
-      <div class="flex flex-col space-y-3 font-mono text-sm font-bold">
-        <button @click="scrollToSection('programme')" class="text-left py-2 hover:text-[#2B78C4] border-b border-black/10">LE PROGRAMME</button>
-        <button @click="scrollToSection('formules')" class="text-left py-2 hover:text-[#2B78C4] border-b border-black/10">LE PASS SOLO (3 000F)</button>
-        <button @click="scrollToSection('lieu')" class="text-left py-2 hover:text-[#2B78C4] border-b border-black/10">INFOS & LIEU</button>
-        <button @click="scrollToSection('faq')" class="text-left py-2 hover:text-[#2B78C4]">FAQ</button>
-      </div>
-      <div class="pt-2">
-        <button
-          @click="scrollToSection('inscription')"
-          class="w-full py-3.5 bg-black text-white font-mono text-xs font-bold tracking-widest uppercase flex items-center justify-center gap-2 shadow-[3px_3px_0px_0px_#2B78C4]"
+      <nav class="hidden items-center gap-8 lg:flex" aria-label="Navigation principale">
+        <a
+          v-for="link in links"
+          :key="link.id"
+          :href="`#${link.id}`"
+          @click.prevent="go(link.id)"
+          class="label-mono text-bone-dim transition-colors hover:text-bone"
         >
-          <Ticket class="w-4 h-4" />
-          <span>RÉSERVER MA PLACE (3 000F)</span>
+          {{ link.label }}
+        </a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <button @click="book" class="btn-primary hidden !px-5 !py-2.5 !text-sm sm:inline-flex">
+          Réserver · {{ formatPrice(event.price) }}
+          <ArrowRight class="h-4 w-4" />
+        </button>
+        <button
+          @click="menuOpen = !menuOpen"
+          class="relative z-10 grid h-11 w-11 place-items-center rounded-full border hairline text-bone lg:hidden"
+          :aria-label="menuOpen ? 'Fermer le menu' : 'Ouvrir le menu'"
+          :aria-expanded="menuOpen"
+        >
+          <X v-if="menuOpen" class="h-5 w-5" />
+          <Menu v-else class="h-5 w-5" />
         </button>
       </div>
     </div>
+
+    <Transition
+      enter-active-class="transition duration-300 ease-out"
+      enter-from-class="opacity-0"
+      leave-active-class="transition duration-200 ease-in"
+      leave-to-class="opacity-0"
+    >
+      <div v-if="menuOpen" class="fixed inset-0 flex flex-col bg-ink px-6 pb-10 pt-24 lg:hidden">
+        <nav class="flex flex-1 flex-col justify-center gap-2" aria-label="Navigation mobile">
+          <a
+            v-for="(link, i) in links"
+            :key="link.id"
+            :href="`#${link.id}`"
+            @click.prevent="go(link.id)"
+            class="group flex items-baseline gap-4 border-b hairline py-3"
+          >
+            <span class="label-mono text-blood">0{{ i + 1 }}</span>
+            <span class="display text-5xl text-bone transition-colors group-hover:text-blood">{{ link.label }}</span>
+          </a>
+        </nav>
+        <button @click="book" class="btn-primary w-full">
+          Réserver ma place · {{ formatPrice(event.price) }}
+          <ArrowRight class="h-4 w-4" />
+        </button>
+      </div>
+    </Transition>
   </header>
 </template>
