@@ -103,8 +103,8 @@ const facts = [
 
           <!-- Sticker dress code -->
           <div
-            class="animate-float absolute -bottom-2 -right-6 grid h-28 w-28 place-items-center sm:right-0 sm:h-36 sm:w-36 lg:-right-4"
-            style="--r: 10deg"
+            class="animate-float absolute -bottom-4 -left-2 z-10 grid h-28 w-28 place-items-center sm:-left-4 sm:h-36 sm:w-36"
+            style="--r: -10deg"
           >
             <svg viewBox="0 0 100 100" class="absolute inset-0 h-full w-full text-blood" aria-hidden="true">
               <path fill="currentColor" d="M50 3c9 0 14 6 22 8s16 4 20 12 0 15 3 23 4 17-1 24-15 9-21 15-11 12-21 12-15-5-23-8-17-3-22-11-1-16-4-24-6-17-2-24 13-8 20-14S41 3 50 3Z" />

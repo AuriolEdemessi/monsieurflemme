@@ -37,7 +37,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div ref="stage" class="mascot-stage relative aspect-[567/549]">
+  <div ref="stage" class="mascot-stage relative aspect-[565/566]">
     <!-- Disque plat derrière la tête : le buste en déborde par le bas et les côtés -->
     <div
       class="absolute left-[9%] top-[-3%] w-[82%] aspect-square rounded-full bg-blood transition-transform duration-500 ease-out"
@@ -59,7 +59,7 @@ onUnmounted(() => {
           fetchpriority="high"
         />
         <!-- Halo de la sucette, posé devant -->
-        <span class="mascot-glow pointer-events-none absolute left-[53%] top-[63%] h-[26%] w-[26%] rounded-full"></span>
+        <span class="mascot-glow pointer-events-none absolute left-[53%] top-[61%] h-[26%] w-[26%] rounded-full"></span>
       </div>
     </div>
   </div>
