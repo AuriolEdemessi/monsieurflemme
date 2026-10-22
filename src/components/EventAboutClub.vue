@@ -43,7 +43,7 @@ import CrownDoodle from './ui/CrownDoodle.vue'
             <li
               v-for="pillar in event.pillars"
               :key="pillar"
-              class="label-mono rounded-full border hairline px-4 py-2 text-bone"
+              class="label-mono border hairline px-4 py-2 text-bone"
             >
               {{ pillar }}
             </li>

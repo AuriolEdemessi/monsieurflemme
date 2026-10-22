@@ -82,7 +82,7 @@
     justify-content: center;
     gap: 0.75rem;
     padding: 1rem 1.6rem;
-    border-radius: 9999px;
+    border-radius: 0;
     background: var(--color-blood);
     color: var(--color-ink);
     font-weight: 800;
@@ -106,7 +106,7 @@
     justify-content: center;
     gap: 0.6rem;
     padding: 1rem 1.4rem;
-    border-radius: 9999px;
+    border-radius: 0;
     border: 1px solid color-mix(in srgb, var(--color-bone) 25%, transparent);
     color: var(--color-bone);
     font-weight: 700;

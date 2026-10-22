@@ -1,0 +1,76 @@
+/* Série d'affiches Flemmard Club — Halloween Special Edition
+   Format 1080 × 1350 (4:5, feed Instagram). Rendu : voir render.sh */
+
+:root {
+  --ink: #0b0908;
+  --bone: #f2e8d5;
+  --bone-dim: #b9ae9b;
+  --blood: #ff2d20;
+  --margin: 72px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body { width: 1080px; height: 1350px; overflow: hidden; }
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.poster {
+  position: relative;
+  width: 1080px;
+  height: 1350px;
+  padding: var(--margin);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.ink { background: var(--ink); color: var(--bone); }
+.bone { background: var(--bone); color: var(--ink); }
+.blood { background: var(--blood); color: var(--ink); }
+
+.display {
+  font-family: 'Anton', sans-serif;
+  text-transform: uppercase;
+  line-height: 0.86;
+  letter-spacing: 0.005em;
+}
+
+.marker { font-family: 'Permanent Marker', cursive; line-height: 1; }
+
+.mono {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 500;
+  font-size: 19px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.red { color: var(--blood); }
+.dim { opacity: 0.6; }
+
+/* En-tête et pied communs à la série */
+.top, .bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 2;
+}
+.top { padding-bottom: 28px; border-bottom: 2px solid currentColor; }
+.bottom { padding-top: 28px; border-top: 2px solid currentColor; margin-top: auto; }
+
+.logo { height: 76px; transform: rotate(-3deg); }
+
+.crown { width: 44px; height: 33px; }
+
+.icon {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}

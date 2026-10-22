@@ -75,7 +75,7 @@ onUnmounted(() => {
         </button>
         <button
           @click="menuOpen = !menuOpen"
-          class="relative z-10 grid h-11 w-11 place-items-center rounded-full border hairline text-bone lg:hidden"
+          class="relative z-10 grid h-11 w-11 place-items-center border hairline text-bone lg:hidden"
           :aria-label="menuOpen ? 'Fermer le menu' : 'Ouvrir le menu'"
           :aria-expanded="menuOpen"
         >

@@ -61,7 +61,7 @@ function toggle(i) {
               <span class="text-lg font-bold text-bone transition-colors group-hover:text-blood sm:text-xl">{{ item.q }}</span>
               <span
                 :class="[
-                  'grid h-10 w-10 shrink-0 place-items-center rounded-full border transition-all duration-300',
+                  'grid h-10 w-10 shrink-0 place-items-center border transition-all duration-300',
                   openIndex === i ? 'rotate-45 border-blood bg-blood text-ink' : 'hairline text-bone',
                 ]"
               >

@@ -31,12 +31,12 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
       visible && !hidden ? 'translate-y-0 opacity-100' : 'pointer-events-none translate-y-[150%] opacity-0',
     ]"
   >
-    <div class="flex items-center justify-between gap-3 rounded-full border hairline bg-ink-2/90 py-2 pl-5 pr-2 shadow-2xl backdrop-blur-lg">
+    <div class="flex items-center justify-between gap-3 border hairline bg-ink-2/90 py-2 pl-5 pr-2 shadow-2xl backdrop-blur-lg">
       <div class="leading-tight">
         <p class="display text-lg text-bone">{{ formatPrice(event.price) }}</p>
         <p class="label-mono !text-[0.6rem] text-bone-dim">{{ event.capacity }} places</p>
       </div>
-      <button @click="emit('openTicket')" class="flex items-center gap-2 rounded-full bg-blood px-5 py-3 text-sm font-extrabold text-ink">
+      <button @click="emit('openTicket')" class="flex items-center gap-2 bg-blood px-5 py-3 text-sm font-extrabold text-ink">
         Réserver
         <ArrowRight class="h-4 w-4" />
       </button>

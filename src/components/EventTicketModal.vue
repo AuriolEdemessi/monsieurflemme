@@ -71,13 +71,13 @@ function handleSubmit() {
         role="dialog"
         aria-modal="true"
         aria-labelledby="ticket-title"
-        class="relative max-h-[92svh] w-full max-w-lg overflow-y-auto rounded-t-3xl border hairline bg-ink-2 sm:rounded-3xl"
+        class="relative max-h-[92svh] w-full max-w-lg overflow-y-auto border hairline bg-ink-2"
       >
         <!-- En-tête façon billet -->
         <div class="paper relative px-6 pb-7 pt-6 sm:px-8">
           <button
             @click="emit('close')"
-            class="absolute right-4 top-4 grid h-10 w-10 place-items-center rounded-full text-ink/70 transition-colors hover:bg-ink/10 hover:text-ink"
+            class="absolute right-4 top-4 grid h-10 w-10 place-items-center text-ink/70 transition-colors hover:bg-ink/10 hover:text-ink"
             aria-label="Fermer"
           >
             <X class="h-5 w-5" />
@@ -98,7 +98,7 @@ function handleSubmit() {
 
         <form @submit.prevent="handleSubmit" class="space-y-5 px-6 pb-6 pt-8 sm:px-8 sm:pb-8">
           <!-- Quantité -->
-          <div class="flex items-center justify-between gap-4 rounded-2xl border hairline p-4">
+          <div class="flex items-center justify-between gap-4 border hairline p-4">
             <div>
               <p class="font-bold text-bone">Places</p>
               <p class="text-sm text-bone-dim">{{ formatPrice(event.price) }} / personne</p>
@@ -108,7 +108,7 @@ function handleSubmit() {
                 type="button"
                 @click="changeQuantity(-1)"
                 :disabled="quantity <= 1"
-                class="grid h-10 w-10 place-items-center rounded-full border hairline text-bone transition-colors hover:border-bone disabled:opacity-30"
+                class="grid h-10 w-10 place-items-center border hairline text-bone transition-colors hover:border-bone disabled:opacity-30"
                 aria-label="Retirer une place"
               >
                 <Minus class="h-4 w-4" />
@@ -118,7 +118,7 @@ function handleSubmit() {
                 type="button"
                 @click="changeQuantity(1)"
                 :disabled="quantity >= event.maxTicketsPerOrder"
-                class="grid h-10 w-10 place-items-center rounded-full border hairline text-bone transition-colors hover:border-bone disabled:opacity-30"
+                class="grid h-10 w-10 place-items-center border hairline text-bone transition-colors hover:border-bone disabled:opacity-30"
                 aria-label="Ajouter une place"
               >
                 <Plus class="h-4 w-4" />
@@ -135,7 +135,7 @@ function handleSubmit() {
               required
               autocomplete="name"
               placeholder="Ex : Kévin le Flemmard"
-              class="mt-2 w-full rounded-xl border hairline bg-ink px-4 py-3.5 text-bone placeholder-bone-dim/40 transition-colors focus:border-blood focus:outline-none"
+              class="mt-2 w-full border hairline bg-ink px-4 py-3.5 text-bone placeholder-bone-dim/40 transition-colors focus:border-blood focus:outline-none"
             />
           </label>
 
@@ -148,7 +148,7 @@ function handleSubmit() {
               autocomplete="tel"
               inputmode="tel"
               placeholder="Ex : +229 01 97 00 00 00"
-              class="mt-2 w-full rounded-xl border hairline bg-ink px-4 py-3.5 text-bone placeholder-bone-dim/40 transition-colors focus:border-blood focus:outline-none"
+              class="mt-2 w-full border hairline bg-ink px-4 py-3.5 text-bone placeholder-bone-dim/40 transition-colors focus:border-blood focus:outline-none"
             />
           </label>
 
@@ -158,7 +158,7 @@ function handleSubmit() {
               v-model="artistCostume"
               type="text"
               placeholder="Garde la surprise ou dis-nous tout"
-              class="mt-2 w-full rounded-xl border hairline bg-ink px-4 py-3.5 text-bone placeholder-bone-dim/40 transition-colors focus:border-blood focus:outline-none"
+              class="mt-2 w-full border hairline bg-ink px-4 py-3.5 text-bone placeholder-bone-dim/40 transition-colors focus:border-blood focus:outline-none"
             />
           </label>
 

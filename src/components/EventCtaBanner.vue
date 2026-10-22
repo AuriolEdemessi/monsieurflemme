@@ -19,7 +19,7 @@ const emit = defineEmits(['openTicket'])
       <button
         v-reveal="300"
         @click="emit('openTicket')"
-        class="mt-10 inline-flex items-center gap-3 rounded-full bg-ink px-8 py-5 font-extrabold text-bone shadow-[5px_5px_0_var(--color-bone)] transition-transform hover:-translate-x-0.5 hover:-translate-y-0.5"
+        class="mt-10 inline-flex items-center gap-3 bg-ink px-8 py-5 font-extrabold text-bone shadow-[5px_5px_0_var(--color-bone)] transition-transform hover:-translate-x-0.5 hover:-translate-y-0.5"
       >
         Réserver ma place · {{ formatPrice(event.price) }}
         <ArrowRight class="h-4 w-4" />

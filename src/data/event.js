@@ -39,7 +39,12 @@ export const event = {
 
   pillars: ['Cinéma', 'Musique', 'Jeux', 'Créativité', 'Rencontres'],
 
-  poster: '/events/halloween/affiche.jpg',
+  // Série d'affiches (sources dans design/affiches, rendu : sh design/affiches/render.sh)
+  posters: [
+    { src: '/events/halloween/affiche-01-annonce.jpg', label: "L'annonce" },
+    { src: '/events/halloween/affiche-02-programme.jpg', label: 'Le programme' },
+    { src: '/events/halloween/affiche-03-infos.jpg', label: 'Infos & réservation' },
+  ],
   heroVisual: '/events/halloween/pumpkin.webp',
   ambianceVisual: '/events/halloween/photo-dj.webp',
 
