@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="poster-size" content="1080x1512" />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@700&family=Permanent+Marker&display=block" rel="stylesheet">
+  <link rel="stylesheet" href="affiches.css" />
+  <style>
+    html, body, .poster { width: 1080px; height: 1512px; }
+    .poster { background: var(--night); }
+
+    .logo { top: 54px; left: 50%; height: 96px; transform: translateX(-50%) rotate(-4deg); }
+
+    .title { top: 190px; left: 0; right: 0; text-align: center; color: var(--cream); }
+    .title .l1 { font-size: 160px; }
+    .title .l2 { font-size: 86px; margin-top: 8px; }
+
+    .bigdate { top: 1092px; left: 0; right: 0; text-align: center; font-size: 430px; color: var(--shadow); z-index: 1; }
+    .slogan { top: 1178px; left: 0; right: 0; text-align: center; color: var(--cream); font-size: 128px; line-height: 0.92; }
+  </style>
+</head>
+<body>
+  <div class="poster">
+    <svg class="art" viewBox="0 0 1080 1512" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="sun" cx="540" cy="1040" r="380" gradientUnits="userSpaceOnUse">
+          <stop offset="0.45" stop-color="#ee5223" />
+          <stop offset="0.62" stop-color="#f4a62a" />
+          <stop offset="0.8" stop-color="#e3282c" />
+          <stop offset="1" stop-color="#ee5223" />
+        </radialGradient>
+        <clipPath id="frame">
+          <path d="M240 470l60-14 34 30 50-22 70 8 40-16 110 12 60-20 70 14 50-10 30 26 72-8 10 140-20 60 14 120-6 160 30 180H210l18-170-12-150 22-110-14-90Z" />
+        </clipPath>
+      </defs>
+
+      <!-- Toiles d'araignée -->
+      <g id="webs" fill="none" stroke="#f5e5a1" stroke-width="3" stroke-linecap="round"></g>
+
+      <!-- Araignée -->
+      <g stroke="#f5e5a1" stroke-width="3" fill="none" stroke-linecap="round">
+        <path d="M150 260V560" />
+        <g transform="translate(150 590)">
+          <path d="M-14-6l-26-18-8-20M-16 2l-32-6-14-18M-16 10l-30 10-10 22M-12 18l-22 22-2 22M14-6l26-18 8-20M16 2l32-6 14-18M16 10l30 10 10 22M12 18l22 22 2 22" />
+        </g>
+      </g>
+      <circle cx="150" cy="576" r="14" fill="#f5e5a1" />
+      <circle cx="150" cy="604" r="20" fill="#f5e5a1" />
+
+      <!-- Illustration -->
+      <g clip-path="url(#frame)">
+        <rect x="200" y="440" width="680" height="620" fill="#ee5223" />
+        <circle cx="540" cy="1040" r="380" fill="url(#sun)" />
+        <!-- Nuages -->
+        <path fill="#241f21" d="M200 640c40-10 70-30 120-18 30-30 90-30 120-6 20 10 30 30 10 34-60 6-140-8-250 4z" />
+        <path fill="#241f21" d="M640 640c40-30 110-24 140-6 30-6 60 0 100-10v40c-60 4-140 0-240-24z" />
+        <path fill="#d64026" d="M260 760c50-20 120-12 150 10-40 8-110 12-150-10zM700 790c60-16 120-10 170 6-60 14-120 12-170-6z" />
+        <g id="birds" fill="#f7d9c6"></g>
+
+        <!-- Maison -->
+        <path fill="#2b2526" d="M400 596h280l140 330H260Z" />
+        <rect x="388" y="576" width="304" height="24" fill="#5c4b47" />
+        <g id="scallops" fill="none" stroke="#5c4b47" stroke-width="3"></g>
+        <circle cx="540" cy="712" r="64" fill="#ee5223" stroke="#5c4b47" stroke-width="8" />
+        <path d="M540 648v128M476 712h128" stroke="#5c4b47" stroke-width="8" />
+
+        <!-- Fantôme qui sort par la fenêtre -->
+        <path fill="#f7d9c6" d="M600 612c34-16 64 8 62 52-2 50-30 90-62 120-20 18-40 34-48 60-6-10-6-24 0-40 14-34 38-56 44-96 4-30-12-52-26-60 6-22 16-30 30-36Z" />
+        <circle cx="616" cy="640" r="5" fill="#241f21" />
+        <circle cx="634" cy="638" r="5" fill="#241f21" />
+
+        <!-- Ailes et auvents -->
+        <rect x="282" y="900" width="120" height="120" fill="#2b2526" />
+        <rect x="678" y="900" width="120" height="120" fill="#2b2526" />
+        <rect x="262" y="886" width="146" height="14" fill="#5c4b47" />
+        <rect x="672" y="886" width="146" height="14" fill="#5c4b47" />
+        <g id="fringes" fill="#ee5223"></g>
+        <g id="windows"></g>
+
+        <!-- Porche et porte -->
+        <rect x="392" y="864" width="296" height="160" fill="#2b2526" />
+        <rect x="376" y="852" width="328" height="16" fill="#5c4b47" />
+        <rect x="404" y="836" width="272" height="16" fill="#5c4b47" />
+        <rect x="396" y="868" width="10" height="150" fill="#5c4b47" />
+        <rect x="674" y="868" width="10" height="150" fill="#5c4b47" />
+        <rect x="452" y="896" width="176" height="122" fill="#5c4b47" />
+        <path fill="#2b2526" d="M464 1008v-74a26 26 0 0 1 52 0v74zM564 1008v-74a26 26 0 0 1 52 0v74z" />
+        <path d="M464 960h52M564 960h52" stroke="#5c4b47" stroke-width="6" />
+        <rect x="430" y="1018" width="220" height="12" fill="#ee5223" />
+        <rect x="408" y="1030" width="264" height="16" fill="#f0603a" />
+
+        <!-- Petit fantôme caché -->
+        <path fill="#f7d9c6" d="M300 1046v-90c0-22 14-36 28-36s26 14 26 36v90z" />
+        <circle cx="318" cy="950" r="4" fill="#241f21" />
+        <circle cx="334" cy="950" r="4" fill="#241f21" />
+
+        <!-- Herbes -->
+        <g id="grass" fill="#241f21"></g>
+      </g>
+    </svg>
+
+    <img class="layer logo" src="../../public/brand/logo-flemmard-club.png" alt="" />
+
+    <div class="layer title anton">
+      <div><span class="sliced l1">Halloween</span></div>
+      <div><span class="sliced l2">Special Edition</span></div>
+    </div>
+
+    <p class="layer anton bigdate">31 oct</p>
+    <p class="layer anton slogan">Deux ambiances<br />un seul club !</p>
+  </div>
+
+  <script src="slice.js"></script>
+  <script>
+    const ns = 'http://www.w3.org/2000/svg'
+    const add = (parent, tag, attrs) => {
+      const el = document.createElementNS(ns, tag)
+      for (const [k, v] of Object.entries(attrs)) el.setAttribute(k, v)
+      document.getElementById(parent).appendChild(el)
+      return el
+    }
+
+    // Toiles dans les coins : rayons + fils en arc entre les rayons
+    function web(cx, cy, dir) {
+      const spokes = 7
+      const radii = [95, 170, 245, 320]
+      const angle = (i) => (dir > 0 ? 0 : Math.PI) + dir * (Math.PI / 2) * (i / (spokes - 1)) * 0.98 + dir * 0.02
+      const pt = (i, r) => [cx + Math.cos(angle(i)) * r, cy + Math.sin(angle(i)) * r]
+      for (let i = 0; i < spokes; i++) {
+        const [x, y] = pt(i, 390)
+        add('webs', 'path', { d: `M${cx} ${cy}L${x} ${y}` })
+      }
+      for (const r of radii) {
+        let d = ''
+        for (let i = 0; i < spokes - 1; i++) {
+          const [x1, y1] = pt(i, r)
+          const [x2, y2] = pt(i + 1, r)
+          const [mx, my] = pt(i + 0.5, r * 0.82)
+          d += `${i === 0 ? `M${x1} ${y1}` : ''}Q${mx} ${my} ${x2} ${y2}`
+        }
+        add('webs', 'path', { d })
+      }
+    }
+    web(-10, -10, 1)
+    web(1090, -10, -1)
+
+    // Oiseaux
+    const bird = 'M0 10C8 2 16 0 24 8 32 0 40 2 48 10 40 6 32 8 24 16 16 8 8 6 0 10Z'
+    ;[[300, 700, 1, -10], [350, 742, 0.6, 6], [400, 720, 0.5, 0], [690, 690, 1.2, 12], [740, 742, 0.7, -6], [650, 760, 0.6, 4], [720, 610, 1.4, -14], [610, 840, 0.5, 0]]
+      .forEach(([x, y, s, r]) => add('birds', 'path', { d: bird, transform: `translate(${x} ${y}) rotate(${r}) scale(${s})` }))
+
+    // Écailles du toit
+    ;[[470, 640], [560, 800], [620, 820], [450, 830], [700, 780], [380, 790], [600, 660], [500, 870]].forEach(([x, y]) => {
+      add('scallops', 'path', { d: `M${x} ${y}a10 10 0 0 0 20 0a10 10 0 0 0 20 0a10 10 0 0 0 20 0` })
+    })
+
+    // Franges sous les auvents
+    for (const x0 of [262, 672]) {
+      for (let i = 0; i < 7; i++) add('fringes', 'path', { d: `M${x0 + i * 21} 900h21a10.5 10.5 0 0 1-21 0z` })
+    }
+
+    // Fenêtres des ailes
+    ;[[320, 930], [716, 930]].forEach(([x, y]) => {
+      add('windows', 'path', { d: `M${x} ${y + 70}v-46a22 22 0 0 1 44 0v46z`, fill: '#ee5223' })
+      add('windows', 'path', { d: `M${x + 22} ${y + 2}v68M${x} ${y + 34}h44`, stroke: '#2b2526', 'stroke-width': 6 })
+      add('windows', 'rect', { x: x - 8, y: y + 72, width: 60, height: 6, fill: '#5c4b47' })
+    })
+
+    // Herbes hautes
+    const blade = (x, h, lean) => `M${x} 1060q${lean / 2} ${-h / 2} ${lean} ${-h}q${-lean / 3} ${h / 2} ${10} ${h}z`
+    ;[[220, 110, 20], [240, 80, -10], [260, 120, 30], [280, 70, 10], [800, 110, -20], [820, 90, 14], [840, 130, -30], [860, 70, 10], [380, 50, 8], [700, 50, -8]]
+      .forEach(([x, h, l]) => add('grass', 'path', { d: blade(x, h, l) }))
+  </script>
+</body>
+</html>

@@ -41,11 +41,10 @@ export const event = {
 
   // Série d'affiches (sources dans design/affiches, rendu : sh design/affiches/render.sh)
   posters: [
-    { src: '/events/halloween/affiche-01-annonce.jpg', label: "L'annonce" },
-    { src: '/events/halloween/affiche-02-programme.jpg', label: 'Le programme' },
-    { src: '/events/halloween/affiche-03-infos.jpg', label: 'Infos & réservation' },
+    { src: '/events/halloween/affiche-teaser.jpg', label: 'Le teaser' },
+    { src: '/events/halloween/affiche-infos.jpg', label: 'Toutes les infos' },
   ],
-  heroVisual: '/events/halloween/pumpkin.webp',
+  heroVisual: '/events/halloween/mascotte-citrouille.webp',
   ambianceVisual: '/events/halloween/photo-dj.webp',
 
   // Numéro WhatsApp de réservation (format international, sans +) : +229 01 91 31 93 57

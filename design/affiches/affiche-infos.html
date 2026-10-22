@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="poster-size" content="1080x1920" />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@700&family=Permanent+Marker&display=block" rel="stylesheet">
+  <link rel="stylesheet" href="affiches.css" />
+  <style>
+    html, body, .poster { width: 1080px; height: 1920px; }
+    .poster { background: var(--red); }
+
+    .logo { top: 52px; left: 66px; height: 96px; transform: rotate(-4deg); }
+
+    .title { top: 186px; left: 70px; color: var(--cream); }
+    .title .l1 { font-size: 204px; }
+    .title .l2 { font-size: 110px; margin-top: 8px; }
+
+    .music { top: 526px; left: 74px; color: var(--ink); }
+    .music .by { font-size: 46px; color: var(--cream); transform: rotate(-4deg); display: inline-block; }
+    .music .name { font-size: 150px; line-height: 0.85; margin-top: 4px; }
+
+    .ribbons { top: 770px; left: 300px; }
+    .ribbons .ribbon { font-size: 76px; }
+    .ribbons .r1 { transform: rotate(-2.5deg); }
+    .ribbons .r2 { transform: rotate(3deg); margin: 10px 0 0 30px; }
+
+    .program { top: 966px; left: 470px; width: 560px; color: var(--ink); }
+    .program .head { font-size: 22px; color: var(--cream); margin-bottom: 16px; }
+    .program ul { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 10px 24px; }
+    .program li { font-size: 38px; line-height: 1; display: flex; align-items: center; gap: 12px; white-space: nowrap; }
+    .program li::before { content: ''; width: 12px; height: 12px; background: var(--ink); flex: none; }
+
+    .slogan { top: 1474px; left: 40px; width: 1000px; text-align: center; color: var(--red); font-size: 74px; white-space: nowrap; transform: rotate(-2deg); }
+
+    .infos { left: 72px; right: 72px; bottom: 72px; color: var(--cream); }
+    .infos .row { display: flex; justify-content: space-between; align-items: baseline; padding: 14px 0; border-top: 2px solid rgba(245, 229, 161, 0.25); }
+    .infos .label { font-size: 18px; color: var(--red); }
+    .infos .value { font-size: 46px; }
+
+    .bigdate { right: -20px; bottom: -40px; font-size: 380px; color: var(--shadow); z-index: 1; }
+  </style>
+</head>
+<body>
+  <div class="poster">
+    <svg class="art" viewBox="0 0 1080 1920" xmlns="http://www.w3.org/2000/svg">
+      <!-- Oiseaux -->
+      <g fill="#050a10" id="birds" transform="translate(620 -20)"></g>
+
+      <!-- Fantôme -->
+      <g transform="translate(790 470) rotate(-12)">
+        <path fill="#050a10" d="M120 0C52 0 18 52 18 118v140c0 18-18 34-18 52 26-6 34 16 58 10 20-6 22-30 44-28 22 2 26 30 50 30 22 0 26-26 48-26 24 0 34 22 58 16-8-24-18-40-18-64V118C240 52 190 0 120 0Z"/>
+        <ellipse cx="88" cy="98" rx="14" ry="22" fill="#ee3924"/>
+        <ellipse cx="152" cy="92" rx="14" ry="22" fill="#ee3924"/>
+        <ellipse cx="124" cy="160" rx="16" ry="24" fill="#ee3924"/>
+      </g>
+
+      <!-- Lune -->
+      <circle cx="960" cy="1390" r="290" fill="#f5e5a1"/>
+
+      <!-- Pomme d'amour -->
+      <g transform="translate(0 -96)">
+      <line x1="248" y1="960" x2="372" y2="1340" stroke="#050a10" stroke-width="18" stroke-linecap="round"/>
+      <path fill="#050a10" d="M232 860c-60-20-118 18-118 92 0 72 50 118 106 118 18 0 30-8 40-8s22 8 40 8c56 0 92-46 92-118 0-74-56-112-112-92-8 3-18 6-24 6s-16-3-24-6Z"/>
+      <path fill="#050a10" d="M226 868l8-60h24l-14 62z"/>
+      </g>
+
+      <!-- Bonbon -->
+      <g transform="translate(610 650) rotate(-10) scale(0.75)">
+        <path fill="#050a10" d="M-120 -20l50 18-50 22 18-20zM120 -20l-50 18 50 22-18-20z"/>
+        <ellipse cx="0" cy="0" rx="80" ry="54" fill="#050a10"/>
+        <path fill="#ee3924" d="M-44 -18l26 10-26 8zM44 -18l-26 10 26 8zM-40 18l14 12 12-10 14 12 14-12 12 10 14-12-8 18H-32z"/>
+      </g>
+
+      <!-- Maison hantée -->
+      <g transform="translate(0 -150)">
+      <g fill="#050a10">
+        <path d="M0 1260C40 1150 70 1060 100 940c26 120 70 220 190 320H260v660H0Z"/>
+        <path d="M250 1350h40v-60l110 30v600H250Z"/>
+        <path d="M300 1380h190l14 30H300z"/>
+        <rect x="300" y="1560" width="130" height="10"/>
+        <g id="fence"></g>
+      </g>
+      <g id="windows"></g>
+      </g>
+
+      <!-- Chauves-souris -->
+      <g fill="#050a10" id="bats"></g>
+
+      <!-- Sol et tombes -->
+      <g fill="#050a10">
+        <path d="M0 1450 L420 1438 L700 1446 L1080 1430 V1920 H0Z"/>
+        <g transform="translate(0 -150)"><path d="M520 1600v-70a50 50 0 0 1 100 0v70z"/>
+        <path d="M660 1600v-120h24v-34h40v34h24v120z"/>
+        <path d="M800 1600v-60a46 46 0 0 1 92 0v60z"/>
+        <path d="M936 1600l-14-64-30-28 8-10 26 22-6-44h12l8 44 10-50h12l-6 54 20-38 12 6-22 48 24-20 8 10-34 38 4 32z"/>
+      </g></g>
+    </svg>
+
+    <img class="layer logo" src="../../public/brand/logo-flemmard-club.png" alt="" />
+
+    <div class="layer title anton">
+      <div><span class="sliced l1">Halloween</span></div>
+      <div><span class="sliced l2">Special Edition</span></div>
+    </div>
+
+    <div class="layer music anton">
+      <span class="marker by">Music by</span>
+      <p class="name">Big H</p>
+    </div>
+
+    <div class="layer ribbons anton">
+      <div><span class="ribbon r1">Frissons, beats</span></div>
+      <div><span class="ribbon r2">et bonne énergie !</span></div>
+    </div>
+
+    <div class="layer program anton">
+      <p class="mono head">Au programme</p>
+      <ul>
+        <li>Film d'horreur</li>
+        <li>Karaoké</li>
+        <li>Popcorn &amp; bissap</li>
+        <li>Jeux</li>
+        <li>Maquillage</li>
+        <li>Déguisement</li>
+      </ul>
+    </div>
+
+    <p class="layer anton bigdate">31 oct</p>
+
+    <p class="layer anton slogan">Viens en ton artiste préféré !</p>
+
+    <div class="layer infos anton">
+      <div class="row"><span class="mono label">Quand</span><span class="value">Sam. 31 oct. — dès 18h</span></div>
+      <div class="row"><span class="mono label">Où</span><span class="value">Le Yao, Akpakpa-Centre</span></div>
+      <div class="row"><span class="mono label">Ticket</span><span class="value">5 000 F · 30 places</span></div>
+      <div class="row"><span class="mono label">WhatsApp</span><span class="value">+229 01 91 31 93 57</span></div>
+    </div>
+  </div>
+
+  <script src="slice.js"></script>
+  <script>
+    const ns = 'http://www.w3.org/2000/svg'
+    const add = (parent, tag, attrs) => {
+      const el = document.createElementNS(ns, tag)
+      for (const [k, v] of Object.entries(attrs)) el.setAttribute(k, v)
+      document.getElementById(parent).appendChild(el)
+    }
+
+    // Oiseaux en vol
+    const bird = 'M0 12C10 2 20 0 30 10 40 0 50 2 60 12 50 8 40 10 30 20 20 10 10 8 0 12Z'
+    ;[[250, 92, 1.4, -12], [180, 120, 1, 10], [330, 70, 1.1, -20], [140, 190, 0.7, 0], [210, 168, 0.6, -8]]
+      .forEach(([x, y, s, r]) => add('birds', 'path', { d: bird, transform: `translate(${x} ${y}) rotate(${r}) scale(${s})` }))
+
+    // Chauves-souris
+    const bat = 'M100 30C92 18 82 14 78 20 66 8 40 2 0 12c24 8 32 24 30 44 12-8 26-6 32 6 8-8 20-8 26 4 4-6 8-8 12-4 4-4 8-2 12 4 6-12 18-12 26-4 6-12 20-14 32-6-2-20 6-36 30-44C160 2 134 8 122 20c-4-6-14-2-22 10Z M88 22l4-16 8 12z M112 22l-4-16-8 12z'
+    ;[[690, 1210, 1.2, -6], [400, 1240, 1.4, 22], [890, 1180, 0.7, 8]]
+      .forEach(([x, y, s, r]) => add('bats', 'path', { d: bat, transform: `translate(${x} ${y}) rotate(${r}) scale(${s})` }))
+
+    // Fenêtres cintrées rouges avec croisillons
+    ;[[66, 1300, 84, 140], [18, 1490, 76, 124], [160, 1500, 84, 140], [318, 1450, 60, 96]].forEach(([x, y, w, h]) => {
+      const r = w / 2
+      add('windows', 'path', { d: `M${x} ${y + h}V${y + r}a${r} ${r} 0 0 1 ${w} 0V${y + h}Z`, fill: '#ee3924' })
+      add('windows', 'path', { d: `M${x + r} ${y}V${y + h}M${x} ${y + h * 0.55}H${x + w}`, stroke: '#050a10', 'stroke-width': 10 })
+    })
+
+    // Barrière
+    for (let i = 0; i < 9; i++) add('fence', 'path', { d: `M${305 + i * 14} 1600v-40l5-8 5 8v40z` })
+  </script>
+</body>
+</html>

@@ -38,7 +38,7 @@ function fileName(src) {
             Fais tourner <br />à ta <span class="text-blood">squad</span>
           </h2>
           <p v-reveal="200" class="mt-6 max-w-md text-lg text-bone-dim">
-            Trois affiches, une soirée. Envoie-les à celles et ceux qui ont la flemme de sortir. Ils viendront.
+            Un teaser pour faire monter la pression, une affiche avec toutes les infos. Envoie-les à celles et ceux qui ont la flemme de sortir. Ils viendront.
           </p>
         </div>
         <button v-reveal="300" @click="share" class="btn-primary self-start lg:self-auto">
@@ -50,18 +50,18 @@ function fileName(src) {
     </div>
 
     <!-- Défilement horizontal sur mobile, grille sur desktop -->
-    <ul class="mx-auto mt-14 flex max-w-7xl snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4 sm:gap-6 sm:px-6 lg:grid lg:grid-cols-3 lg:overflow-visible lg:px-8">
+    <ul class="mx-auto mt-14 flex max-w-7xl snap-x snap-mandatory items-end gap-4 overflow-x-auto px-4 pb-4 sm:gap-8 sm:px-6 lg:justify-center lg:overflow-visible lg:px-8">
       <li
         v-for="(poster, i) in event.posters"
         :key="poster.src"
         v-reveal="i * 120"
-        class="w-[78%] shrink-0 snap-center sm:w-[45%] lg:w-auto"
+        class="shrink-0 snap-center"
       >
         <a :href="poster.src" target="_blank" rel="noopener" class="group block overflow-hidden border hairline">
           <img
             :src="poster.src"
-            :alt="`Affiche ${i + 1} sur 3 : ${poster.label}`"
-            class="aspect-[4/5] w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+            :alt="`Affiche Halloween Special Edition : ${poster.label}`"
+            class="h-[440px] w-auto transition-transform duration-500 group-hover:scale-[1.03] sm:h-[560px] lg:h-[660px]"
             loading="lazy"
           />
         </a>

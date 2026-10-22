@@ -4,6 +4,7 @@ import { event, formatPrice } from '../data/event'
 import { useCountdown, pad } from '../composables/useCountdown'
 import CrownDoodle from './ui/CrownDoodle.vue'
 import BrushStroke from './ui/BrushStroke.vue'
+import Mascot3D from './ui/Mascot3D.vue'
 
 const emit = defineEmits(['openTicket'])
 
@@ -87,13 +88,11 @@ const facts = [
       </div>
 
       <!-- Visuel -->
-      <div class="relative order-1 mx-auto w-full max-w-[270px] sm:max-w-[400px] lg:order-2 lg:col-span-5 lg:max-w-none">
-        <div class="relative aspect-[530/630]">
-          <img
+      <div class="relative order-1 mx-auto w-full max-w-[300px] sm:max-w-[440px] lg:order-2 lg:col-span-5 lg:max-w-none lg:-mr-6 lg:scale-110 xl:-mr-12 xl:scale-[1.18]">
+        <div class="relative">
+          <Mascot3D
             :src="event.heroVisual"
             alt="La mascotte du Flemmard Club en citrouille, chapka sur la tête, sucette lumineuse à la main"
-            class="absolute inset-0 h-full w-full object-contain"
-            fetchpriority="high"
           />
 
           <!-- Note manuscrite -->
