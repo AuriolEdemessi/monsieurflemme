@@ -1,14 +1,13 @@
 <script setup>
-import { Clapperboard, MicVocal, Popcorn, Gamepad2, Brush, Drama } from 'lucide-vue-next'
+import { Clapperboard, MicVocal, Popcorn, VenetianMask, MessagesSquare } from 'lucide-vue-next'
 import { event } from '../data/event'
 
 const icons = {
   film: Clapperboard,
+  debrief: MessagesSquare,
+  undercover: VenetianMask,
   mic: MicVocal,
   popcorn: Popcorn,
-  games: Gamepad2,
-  makeup: Brush,
-  costume: Drama,
 }
 </script>
 
@@ -18,14 +17,14 @@ const icons = {
       <div class="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <p v-reveal class="label-mono flex items-center gap-3 text-bone-dim">
-            <span class="text-blood">02</span> Au programme
+            <span class="text-accent">02</span> Au programme
           </p>
           <h2 v-reveal="100" class="display mt-6 text-[clamp(3rem,9vw,7rem)] text-bone">
-            Six raisons <br class="hidden sm:block" />de <span class="text-blood">frissonner</span>
+            Cinq moments, <br class="hidden sm:block" /><span class="text-accent">zéro flemme.</span>
           </h2>
         </div>
         <p v-reveal="200" class="max-w-xs text-bone-dim">
-          Une seule soirée, de quoi rester du début à la fin. Même les plus flemmards.
+          Une seule soirée, du film au karaoké. Même les plus flemmards restent jusqu'au bout.
         </p>
       </div>
 
@@ -34,7 +33,10 @@ const icons = {
           v-for="(item, i) in event.program"
           :key="item.title"
           v-reveal="(i % 3) * 100"
-          class="group relative overflow-hidden border-b border-r hairline p-7 transition-colors duration-300 hover:bg-blood sm:p-9"
+          :class="[
+            'group relative overflow-hidden border-b border-r hairline p-7 transition-colors duration-300 hover:bg-accent sm:p-9',
+            i === event.program.length - 1 ? 'sm:col-span-2 lg:col-span-2' : '',
+          ]"
         >
           <div class="flex items-start justify-between">
             <span class="display text-outline text-6xl text-bone/40 transition-colors duration-300 group-hover:text-ink/50">
@@ -42,7 +44,7 @@ const icons = {
             </span>
             <component
               :is="icons[item.icon]"
-              class="h-8 w-8 text-blood transition-all duration-300 group-hover:-rotate-12 group-hover:text-ink"
+              class="h-8 w-8 text-accent transition-all duration-300 group-hover:-rotate-12 group-hover:text-ink"
               stroke-width="1.6"
             />
           </div>

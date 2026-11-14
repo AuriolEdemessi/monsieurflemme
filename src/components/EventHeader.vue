@@ -7,8 +7,8 @@ const emit = defineEmits(['openTicket'])
 
 const links = [
   { id: 'programme', label: 'Programme' },
-  { id: 'music', label: event.dj },
-  { id: 'dress-code', label: 'Dress code' },
+  { id: 'projection', label: 'Projection' },
+  { id: 'dress-code', label: 'Pyjama' },
   { id: 'infos', label: 'Infos' },
   { id: 'faq', label: 'FAQ' },
 ]
@@ -100,8 +100,8 @@ onUnmounted(() => {
             @click.prevent="go(link.id)"
             class="group flex items-baseline gap-4 border-b hairline py-3"
           >
-            <span class="label-mono text-blood">0{{ i + 1 }}</span>
-            <span class="display text-5xl text-bone transition-colors group-hover:text-blood">{{ link.label }}</span>
+            <span class="label-mono text-accent">0{{ i + 1 }}</span>
+            <span class="display text-5xl text-bone transition-colors group-hover:text-accent">{{ link.label }}</span>
           </a>
         </nav>
         <button @click="book" class="btn-primary w-full">

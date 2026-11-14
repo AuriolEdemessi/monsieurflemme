@@ -7,7 +7,7 @@ const emit = defineEmits(['openTicket'])
 </script>
 
 <template>
-  <section class="relative overflow-hidden bg-blood py-24 text-ink sm:py-32">
+  <section class="relative overflow-hidden bg-accent py-24 text-ink sm:py-32">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <CrownDoodle v-reveal class="mx-auto h-10 w-14" />
       <h2 v-reveal="100" class="display mt-6 text-[clamp(3.4rem,12vw,10rem)]">

@@ -40,7 +40,7 @@ onUnmounted(() => {
   <div ref="stage" class="mascot-stage relative aspect-[565/566]">
     <!-- Disque plat derrière la tête : le buste en déborde par le bas et les côtés -->
     <div
-      class="absolute left-[9%] top-[-3%] w-[82%] aspect-square rounded-full bg-blood transition-transform duration-500 ease-out"
+      class="absolute left-[9%] top-[-3%] w-[82%] aspect-square rounded-full bg-accent transition-transform duration-500 ease-out"
       :style="{ transform: `translate3d(${tilt.x * -14}px, ${tilt.y * -10}px, 0)` }"
     ></div>
 
@@ -74,12 +74,12 @@ onUnmounted(() => {
   transform: translateZ(70px);
   filter:
     drop-shadow(0 28px 30px rgb(0 0 0 / 0.55))
-    drop-shadow(0 0 36px rgb(255 45 32 / 0.35));
+    drop-shadow(0 0 36px rgb(217 161 115 / 0.35));
 }
 
 .mascot-glow {
   transform: translate(-50%, -50%) translateZ(110px);
-  background: radial-gradient(circle, rgb(255 120 90 / 0.55), rgb(255 45 32 / 0.15) 45%, transparent 70%);
+  background: radial-gradient(circle, rgb(230 180 140 / 0.55), rgb(217 161 115 / 0.15) 45%, transparent 70%);
   mix-blend-mode: screen;
   animation: glow 2.6s ease-in-out infinite;
 }

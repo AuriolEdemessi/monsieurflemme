@@ -5,9 +5,9 @@ import BrushStroke from './ui/BrushStroke.vue'
 const emit = defineEmits(['openTicket'])
 
 const steps = [
-  { title: 'Choisis ton artiste', text: 'Rappeur, chanteuse, icône pop, légende afro… celui ou celle qui te ressemble.' },
-  { title: 'Passe-le en mode Halloween', text: 'Zombie, vampire, squelette : garde le style, ajoute les frissons.' },
-  { title: 'Finis sur place', text: "L'atelier maquillage est là pour la touche finale. Pas d'excuse." },
+  { title: 'Sors ton pyjama', text: 'Le plus douillet, le plus ridicule. On valide tout.' },
+  { title: 'Prends ton plaid', text: 'Pour les frileux et les pros du canapé. Zéro jugement.' },
+  { title: 'Reste toi-même', text: 'Chaussettes, chaussons, bonnet : le confort avant tout.' },
 ]
 </script>
 
@@ -16,20 +16,21 @@ const steps = [
     <div class="mx-auto grid max-w-7xl grid-cols-1 gap-14 px-4 sm:px-6 lg:grid-cols-12 lg:px-8">
       <div class="lg:col-span-5">
         <p v-reveal class="label-mono flex items-center gap-3 text-bone-dim">
-          <span class="text-blood">04</span> Dress code
+          <span class="text-accent">04</span> Pyjama code
         </p>
         <h2 v-reveal="100" class="mt-6">
-          <span class="display block text-[clamp(3rem,8vw,6rem)] text-bone">Viens en ton</span>
+          <span class="display block text-[clamp(3rem,8vw,6rem)] text-bone">Viens en</span>
           <span class="relative inline-block -rotate-2">
-            <span class="font-marker text-[clamp(2.6rem,7vw,5rem)] leading-none text-blood">artiste préféré</span>
+            <span class="font-marker text-[clamp(2.6rem,7vw,5rem)] leading-none text-accent">pyjama</span>
             <BrushStroke class="absolute -bottom-2 left-0 h-3 w-full text-bone/80" />
           </span>
         </h2>
         <p v-reveal="200" class="mt-10 max-w-md text-lg text-bone-dim">
-          Le déguisement fait partie de la soirée. Tu peux même nous dire en qui tu viens au moment de réserver.
+          Pas de tenue à préparer, juste du confort. Pyjama, plaid, chaussettes :
+          le club valide absolument tout.
         </p>
         <button v-reveal="300" @click="emit('openTicket')" class="btn-primary mt-10">
-          Je réserve et je me prépare
+          Je réserve et j'enfile mon pyjama
           <ArrowRight class="h-4 w-4" />
         </button>
       </div>
@@ -45,7 +46,7 @@ const steps = [
           ]"
         >
           <div class="flex items-start gap-6">
-            <span class="display text-5xl text-blood">{{ i + 1 }}</span>
+            <span class="display text-5xl text-accent">{{ i + 1 }}</span>
             <div>
               <h3 class="display text-2xl text-ink sm:text-3xl">{{ step.title }}</h3>
               <p class="mt-2 text-ink/70">{{ step.text }}</p>

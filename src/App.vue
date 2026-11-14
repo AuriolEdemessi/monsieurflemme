@@ -5,7 +5,7 @@ import EventHero from './components/EventHero.vue'
 import EventTicker from './components/EventTicker.vue'
 import EventAboutClub from './components/EventAboutClub.vue'
 import EventProgram from './components/EventProgram.vue'
-import EventMusic from './components/EventMusic.vue'
+import EventProjection from './components/EventProjection.vue'
 import EventDressCode from './components/EventDressCode.vue'
 import EventPracticalInfos from './components/EventPracticalInfos.vue'
 import EventGallery from './components/EventGallery.vue'
@@ -35,7 +35,7 @@ function closeTicketModal() {
       <EventTicker />
       <EventAboutClub />
       <EventProgram />
-      <EventMusic />
+      <EventProjection />
       <EventDressCode @open-ticket="openTicketModal" />
       <EventPracticalInfos @open-ticket="openTicketModal" />
       <EventGallery />

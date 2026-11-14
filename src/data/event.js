@@ -3,54 +3,51 @@
 
 export const event = {
   club: 'Flemmard Club',
-  title: 'Halloween',
-  subtitle: 'Special Edition',
-  tagline: 'Frissons, beats et bonne énergie !',
+  title: 'Ciné Club',
+  subtitle: 'Édition Pyjama',
+  tagline: 'Canapé, popcorn, film et bonne compagnie.',
   motto: 'Même quand on a la flemme, on sait faire la fête.',
 
   // Heure locale du Bénin (UTC+1)
-  startsAt: '2026-10-31T18:00:00+01:00',
-  dateLong: 'Samedi 31 octobre 2026',
-  dateShort: 'Sam. 31 oct.',
-  time: 'Dès 18h',
+  startsAt: '2026-11-20T20:00:00+01:00',
+  dateLong: 'Vendredi 20 novembre 2026',
+  dateShort: 'Ven. 20 nov.',
+  time: '20h strict',
+  doors: 'Portes dès 19h30',
 
   venue: 'Le Yao',
   area: 'Akpakpa-Centre',
   city: 'Cotonou',
   mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Le+Yao+Akpakpa+Cotonou',
 
-  price: 5000,
+  price: 3000,
+  duoPrice: 5000,
   currency: 'F',
   capacity: 30,
-  maxTicketsPerOrder: 4,
+  maxTicketsPerOrder: 2,
 
-  dj: 'Big H',
-  dressCode: 'Viens en ton artiste préféré !',
-  slogan: 'Deux ambiances, un seul club !',
+  dressCode: 'Viens en pyjama, ramène ton plaid.',
+  dressCodeShort: 'Viens en pyjama !',
+  slogan: 'Un canapé, un film, zéro prise de tête.',
 
   program: [
-    { icon: 'film', title: "Film d'horreur", text: 'Frissons sur grand écran.' },
-    { icon: 'mic', title: 'Karaoké', text: 'Monte sur scène et exprime ton talent.' },
-    { icon: 'popcorn', title: 'Popcorn & Drink', text: 'Des saveurs pour accompagner la vibe.' },
-    { icon: 'games', title: 'Jeux', text: 'Des jeux et animations pour tous.' },
-    { icon: 'makeup', title: 'Atelier maquillage', text: 'Transformation spéciale Halloween.' },
-    { icon: 'costume', title: 'Déguisement', text: 'Viens dans le style de ton artiste préféré !' },
+    { icon: 'film', title: 'Projection', text: 'Le film surprise, sur grand écran. Chut.' },
+    { icon: 'debrief', title: 'Débriefing', text: 'On refait le film à chaud, sans filtre.' },
+    { icon: 'undercover', title: 'Undercover', text: 'Le jeu de rôles qui fait parler tout le monde.' },
+    { icon: 'mic', title: 'Karaoké', text: 'Micro ouvert après la séance. Assume ton tube.' },
+    { icon: 'popcorn', title: 'Popcorn & drink', text: 'Popcorn chaud et boisson offerts. Évidemment.' },
   ],
 
-  pillars: ['Cinéma', 'Musique', 'Jeux', 'Créativité', 'Rencontres'],
+  pillars: ['Cinéma', 'Jeux', 'Karaoké', 'Popcorn', 'Pyjama'],
 
-  // Série d'affiches (sources dans design/affiches, rendu : sh design/affiches/render.sh)
+  // Affiches : dérivées de l'affiche officielle (dossier event/ à la racine)
   posters: [
-    { src: '/events/halloween/affiche-teaser.jpg', label: 'Le teaser' },
-    { src: '/events/halloween/affiche-infos.jpg', label: 'Toutes les infos' },
-    { src: '/events/halloween/affiche-dj.jpg', label: 'Music by Big H' },
-    { src: '/events/halloween/affiche-dj-story.jpg', label: 'Big H en story' },
-    { src: '/events/halloween/affiche-programme.jpg', label: 'Le programme' },
-    { src: '/events/halloween/affiche-dresscode.jpg', label: 'Le dress code' },
-    { src: '/events/halloween/affiche-places.jpg', label: '30 places' },
+    { src: '/events/cine/affiche-officielle.jpg', label: "L'affiche officielle" },
+    { src: '/events/cine/affiche-detail.jpg', label: 'Le canapé' },
+    { src: '/events/cine/affiche-titre.jpg', label: 'Le titre' },
   ],
-  heroVisual: '/events/halloween/mascotte-citrouille.webp',
-  ambianceVisual: '/events/halloween/photo-dj.webp',
+  heroVisual: '/events/cine/affiche-officielle.jpg',
+  ambianceVisual: '/events/cine/affiche-detail.jpg',
 
   // Numéro WhatsApp de réservation (format international, sans +) : +229 01 91 31 93 57
   whatsapp: '2290191319357',
@@ -60,5 +57,5 @@ export const event = {
 }
 
 export function formatPrice(amount) {
-  return `${amount.toLocaleString('fr-FR').replace(/ | /g, ' ')} ${event.currency}`
+  return `${amount.toLocaleString('fr-FR').replace(/[\s\u202F\u00A0]/g, ' ')} ${event.currency}`
 }

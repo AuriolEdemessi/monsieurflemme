@@ -19,10 +19,10 @@ const barcode = Array.from({ length: 34 }, (_, i) => ((i * 7) % 5) + 1)
   <section id="infos" class="relative border-t hairline py-24 sm:py-32">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <p v-reveal class="label-mono flex items-center gap-3 text-bone-dim">
-        <span class="text-blood">05</span> Infos pratiques
+        <span class="text-accent">05</span> Infos pratiques
       </p>
       <h2 v-reveal="100" class="display mt-6 text-[clamp(3rem,9vw,7rem)] text-bone">
-        Ton <span class="text-blood">ticket</span>
+        Ton <span class="text-accent">ticket</span>
       </h2>
 
       <!-- Billet -->
@@ -34,7 +34,10 @@ const barcode = Array.from({ length: 34 }, (_, i) => ((i * 7) % 5) + 1)
           </div>
 
           <p class="display mt-8 text-[clamp(2.6rem,7vw,4.5rem)] text-ink">
-            Halloween <span class="font-marker text-[0.6em] normal-case text-blood">Special Edition</span>
+            Ciné Club <span class="font-marker text-[0.6em] normal-case text-accent">Édition Pyjama</span>
+          </p>
+          <p class="mt-2 font-semibold text-ink/60">
+            Ticket unique {{ formatPrice(event.price) }} · Pass duo {{ formatPrice(event.duoPrice) }}
           </p>
 
           <dl class="mt-8 grid grid-cols-2 gap-x-6 gap-y-6 border-t border-ink/15 pt-8 lg:grid-cols-4">
@@ -56,7 +59,7 @@ const barcode = Array.from({ length: 34 }, (_, i) => ((i * 7) % 5) + 1)
         <div class="paper flex flex-col justify-between gap-6 rounded-b-2xl p-7 sm:p-10 md:w-72 md:rounded-r-2xl md:rounded-bl-none">
           <div>
             <p class="label-mono text-ink/50">Jauge</p>
-            <p class="display mt-1 text-7xl text-blood">{{ event.capacity }}</p>
+            <p class="display mt-1 text-7xl text-accent">{{ event.capacity }}</p>
             <p class="font-bold text-ink">places, pas une de plus.</p>
           </div>
           <div class="flex h-12 items-stretch gap-[3px]" aria-hidden="true">

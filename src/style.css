@@ -1,15 +1,16 @@
 @import "tailwindcss";
 
 @theme {
-  --color-ink: #0b0908;
-  --color-ink-2: #141110;
-  --color-ink-3: #1f1a17;
-  --color-bone: #f2e8d5;
-  --color-bone-dim: #b9ae9b;
-  --color-blood: #ff2d20;
-  --color-blood-deep: #8f0f09;
-  --color-cocoa: #6a312d;
-  --color-flemme: #3388f8;
+  --color-ink: #0b0914;
+  --color-ink-2: #141020;
+  --color-ink-3: #221a33;
+  --color-bone: #f4e6c8;
+  --color-bone-dim: #b8aa90;
+  --color-accent: #d9a173;
+  --color-accent-deep: #6b432c;
+  --color-cocoa: #8b5a3b;
+  --color-flemme: #8fb6e8;
+  --color-plum: #5b4a7d;
 
   --font-display: 'Anton', 'Impact', sans-serif;
   --font-marker: 'Permanent Marker', cursive;
@@ -25,6 +26,15 @@
 
   body {
     background-color: var(--color-ink);
+    /* Ciel de nuit : petites étoiles façon affiche */
+    background-image:
+      radial-gradient(1.4px 1.4px at 24px 36px, rgb(244 230 200 / 0.5), transparent 60%),
+      radial-gradient(1px 1px at 180px 90px, rgb(143 182 232 / 0.42), transparent 60%),
+      radial-gradient(1.2px 1.2px at 320px 210px, rgb(244 230 200 / 0.32), transparent 60%),
+      radial-gradient(1px 1px at 410px 40px, rgb(217 161 115 / 0.38), transparent 60%),
+      radial-gradient(1.6px 1.6px at 90px 260px, rgb(244 230 200 / 0.28), transparent 60%);
+    background-size: 460px 320px, 520px 380px, 600px 440px, 380px 300px, 700px 500px;
+    background-attachment: fixed;
     color: var(--color-bone);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
@@ -44,12 +54,12 @@
   }
 
   ::selection {
-    background: var(--color-blood);
+    background: var(--color-accent);
     color: var(--color-ink);
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-blood);
+    outline: 2px solid var(--color-accent);
     outline-offset: 3px;
   }
 }
@@ -83,7 +93,7 @@
     gap: 0.75rem;
     padding: 1rem 1.6rem;
     border-radius: 0;
-    background: var(--color-blood);
+    background: var(--color-accent);
     color: var(--color-ink);
     font-weight: 800;
     font-size: 0.95rem;
@@ -211,4 +221,4 @@
 ::-webkit-scrollbar { width: 8px; }
 ::-webkit-scrollbar-track { background: var(--color-ink); }
 ::-webkit-scrollbar-thumb { background: var(--color-ink-3); border-radius: 4px; }
-::-webkit-scrollbar-thumb:hover { background: var(--color-blood); }
+::-webkit-scrollbar-thumb:hover { background: var(--color-accent); }

@@ -12,10 +12,11 @@ const emit = defineEmits(['close'])
 const quantity = ref(1)
 const userName = ref('')
 const userPhone = ref('')
-const artistCostume = ref('')
+const karaokeSong = ref('')
 const nameInput = ref(null)
 
-const total = computed(() => quantity.value * event.price)
+const total = computed(() => (quantity.value === 2 ? event.duoPrice : quantity.value * event.price))
+const passLabel = computed(() => (quantity.value === 2 ? 'Pass duo · 2 places' : 'Ticket unique'))
 
 function changeQuantity(delta) {
   quantity.value = Math.min(event.maxTicketsPerOrder, Math.max(1, quantity.value + delta))
@@ -40,14 +41,14 @@ onUnmounted(() => window.removeEventListener('keydown', onKeydown))
 
 function handleSubmit() {
   const lines = [
-    `🎃 *Réservation — ${event.club} ${event.title} ${event.subtitle}*`,
+    `🎬 *Réservation — ${event.club} ${event.title} ${event.subtitle}*`,
     `${event.dateLong} · ${event.time} · ${event.venue}, ${event.area}`,
     '',
     `👤 Nom : ${userName.value.trim()}`,
     `📱 WhatsApp : ${userPhone.value.trim()}`,
-    `🎟️ Places : ${quantity.value} × ${formatPrice(event.price)} = ${formatPrice(total.value)}`,
+    `🎟️ ${passLabel.value} = ${formatPrice(total.value)}`,
   ]
-  if (artistCostume.value.trim()) lines.push(`🎭 Déguisé(e) en : ${artistCostume.value.trim()}`)
+  if (karaokeSong.value.trim()) lines.push(`🎤 Chanson au karaoké : ${karaokeSong.value.trim()}`)
   lines.push('', 'Je confirme ma réservation, envoyez-moi les infos de paiement 🙏')
 
   window.open(`https://wa.me/${event.whatsapp}?text=${encodeURIComponent(lines.join('\n'))}`, '_blank', 'noopener')
@@ -84,7 +85,7 @@ function handleSubmit() {
           </button>
           <p class="label-mono text-ink/60">Réservation</p>
           <h3 id="ticket-title" class="display mt-2 text-4xl text-ink">
-            Halloween <span class="font-marker text-2xl normal-case text-blood">Special Edition</span>
+            Ciné Club <span class="font-marker text-2xl normal-case text-accent">Édition Pyjama</span>
           </h3>
           <p class="mt-3 text-sm font-semibold text-ink/70">
             {{ event.dateShort }} · {{ event.time }} · {{ event.venue }}, {{ event.area }}
@@ -100,8 +101,8 @@ function handleSubmit() {
           <!-- Quantité -->
           <div class="flex items-center justify-between gap-4 border hairline p-4">
             <div>
-              <p class="font-bold text-bone">Places</p>
-              <p class="text-sm text-bone-dim">{{ formatPrice(event.price) }} / personne</p>
+              <p class="font-bold text-bone">{{ passLabel }}</p>
+              <p class="text-sm text-bone-dim">{{ formatPrice(event.price) }} / pers. · duo {{ formatPrice(event.duoPrice) }}</p>
             </div>
             <div class="flex items-center gap-3">
               <button
@@ -135,7 +136,7 @@ function handleSubmit() {
               required
               autocomplete="name"
               placeholder="Ex : Kévin le Flemmard"
-              class="mt-2 w-full border hairline bg-ink px-4 py-3.5 text-bone placeholder-bone-dim/40 transition-colors focus:border-blood focus:outline-none"
+              class="mt-2 w-full border hairline bg-ink px-4 py-3.5 text-bone placeholder-bone-dim/40 transition-colors focus:border-accent focus:outline-none"
             />
           </label>
 
@@ -148,17 +149,17 @@ function handleSubmit() {
               autocomplete="tel"
               inputmode="tel"
               placeholder="Ex : +229 01 97 00 00 00"
-              class="mt-2 w-full border hairline bg-ink px-4 py-3.5 text-bone placeholder-bone-dim/40 transition-colors focus:border-blood focus:outline-none"
+              class="mt-2 w-full border hairline bg-ink px-4 py-3.5 text-bone placeholder-bone-dim/40 transition-colors focus:border-accent focus:outline-none"
             />
           </label>
 
           <label class="block">
-            <span class="label-mono text-bone-dim">Tu viens en quel artiste ? <span class="normal-case tracking-normal text-bone-dim/60">(facultatif)</span></span>
+            <span class="label-mono text-bone-dim">Une chanson pour le karaoké ? <span class="normal-case tracking-normal text-bone-dim/60">(facultatif)</span></span>
             <input
-              v-model="artistCostume"
+              v-model="karaokeSong"
               type="text"
               placeholder="Garde la surprise ou dis-nous tout"
-              class="mt-2 w-full border hairline bg-ink px-4 py-3.5 text-bone placeholder-bone-dim/40 transition-colors focus:border-blood focus:outline-none"
+              class="mt-2 w-full border hairline bg-ink px-4 py-3.5 text-bone placeholder-bone-dim/40 transition-colors focus:border-accent focus:outline-none"
             />
           </label>
 

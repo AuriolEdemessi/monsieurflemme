@@ -36,7 +36,7 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
         <p class="display text-lg text-bone">{{ formatPrice(event.price) }}</p>
         <p class="label-mono !text-[0.6rem] text-bone-dim">{{ event.capacity }} places</p>
       </div>
-      <button @click="emit('openTicket')" class="flex items-center gap-2 bg-blood px-5 py-3 text-sm font-extrabold text-ink">
+      <button @click="emit('openTicket')" class="flex items-center gap-2 bg-accent px-5 py-3 text-sm font-extrabold text-ink">
         Réserver
         <ArrowRight class="h-4 w-4" />
       </button>

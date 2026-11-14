@@ -7,12 +7,12 @@ import CrownDoodle from './ui/CrownDoodle.vue'
   <section id="le-club" class="relative py-24 sm:py-32">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <p v-reveal class="label-mono flex items-center gap-3 text-bone-dim">
-        <span class="text-blood">01</span> Le club
+        <span class="text-accent">01</span> Le club
       </p>
 
       <h2 v-reveal="100" class="display mt-6 max-w-5xl text-[clamp(2.8rem,8vw,6.5rem)] text-bone">
         Même quand on a la
-        <span class="relative inline-block font-marker normal-case text-blood">flemme</span>,
+        <span class="relative inline-block font-marker normal-case text-accent">flemme</span>,
         on sait faire <span class="text-outline">la fête.</span>
       </h2>
 
@@ -35,8 +35,9 @@ import CrownDoodle from './ui/CrownDoodle.vue'
             des gens qui assument de prendre leur temps, et qui savent se retrouver quand ça compte.
           </p>
           <p v-reveal="100" class="mt-6 max-w-xl text-base leading-relaxed text-bone-dim sm:text-lg">
-            Pour Halloween, on change d'ambiance. Une soirée entre frissons et beats, avec du cinéma,
-            de la musique, des jeux et de la créativité. Petit comité, grosse énergie.
+            Pour cette édition, on baisse les lumières et on sort le grand écran. Un film surprise,
+            des jeux, du karaoké et du popcorn : la soirée parfaite pour les pros du canapé.
+            Petit comité, grosse énergie.
           </p>
 
           <ul v-reveal="200" class="mt-10 flex flex-wrap gap-2">
@@ -50,7 +51,7 @@ import CrownDoodle from './ui/CrownDoodle.vue'
           </ul>
 
           <div v-reveal="300" class="mt-12 flex items-center gap-4">
-            <CrownDoodle class="h-8 w-10 shrink-0 text-blood" />
+            <CrownDoodle class="h-8 w-10 shrink-0 text-accent" />
             <p class="font-marker text-2xl text-bone sm:text-3xl">{{ event.slogan }}</p>
           </div>
         </div>

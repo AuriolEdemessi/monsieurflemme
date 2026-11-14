@@ -32,13 +32,14 @@ function fileName(src) {
       <div class="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
         <div>
           <p v-reveal class="label-mono flex items-center gap-3 text-bone-dim">
-            <span class="text-blood">06</span> Les affiches
+            <span class="text-accent">06</span> Les affiches
           </p>
           <h2 v-reveal="100" class="display mt-6 text-[clamp(3rem,8vw,6.5rem)] text-bone">
-            Fais tourner <br />à ta <span class="text-blood">squad</span>
+            Fais tourner <br />à ta <span class="text-accent">squad</span>
           </h2>
           <p v-reveal="200" class="mt-6 max-w-md text-lg text-bone-dim">
-            Un teaser pour faire monter la pression, les infos, Big H, le programme, le dress code. Envoie-les à celles et ceux qui ont la flemme de sortir. Ils viendront.
+            L'affiche officielle et ses déclinaisons. Un film surprise, un canapé, du popcorn :
+            envoie-la à celles et ceux qui ont la flemme de sortir. Ils viendront.
           </p>
         </div>
         <button v-reveal="300" @click="share" class="btn-primary self-start lg:self-auto">
@@ -60,13 +61,13 @@ function fileName(src) {
         <a :href="poster.src" target="_blank" rel="noopener" class="group block overflow-hidden border hairline">
           <img
             :src="poster.src"
-            :alt="`Affiche Halloween Special Edition : ${poster.label}`"
+            :alt="`Affiche Ciné Club Édition Pyjama : ${poster.label}`"
             class="h-[440px] w-auto transition-transform duration-500 group-hover:scale-[1.03] sm:h-[560px] lg:h-[660px]"
             loading="lazy"
           />
         </a>
         <div class="mt-4 flex items-center justify-between gap-4">
-          <p class="label-mono text-bone-dim"><span class="text-blood">0{{ i + 1 }}</span> {{ poster.label }}</p>
+          <p class="label-mono text-bone-dim"><span class="text-accent">0{{ i + 1 }}</span> {{ poster.label }}</p>
           <a
             :href="poster.src"
             :download="fileName(poster.src)"

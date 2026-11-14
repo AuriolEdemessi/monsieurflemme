@@ -10,7 +10,7 @@ import { event } from '../data/event'
 
         <ul class="flex flex-wrap items-center gap-x-3 gap-y-2">
           <li v-for="(pillar, i) in event.pillars" :key="pillar" class="label-mono flex items-center gap-3 text-bone-dim">
-            <span v-if="i > 0" class="text-blood">/</span>{{ pillar }}
+            <span v-if="i > 0" class="text-accent">/</span>{{ pillar }}
           </li>
         </ul>
       </div>

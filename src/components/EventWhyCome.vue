@@ -5,22 +5,22 @@ const reasons = [
   {
     icon: 'music',
     title: 'Une ambiance unique',
-    description: 'Beats, frissons et bonne énergie toute la nuit.',
+    description: 'Canapé, popcorn et lumières baissées.',
   },
   {
     icon: 'users',
     title: 'Ta communauté',
-    description: 'Des rencontres, des talents et des esprits libres.',
+    description: 'Des rencontres, des rires et des esprits libres.',
   },
   {
     icon: 'mask',
     title: 'Une expérience immersive',
-    description: 'Décor, animations et surprises spéciales Halloween.',
+    description: 'Grand écran, film surprise et Undercover.',
   },
   {
     icon: 'crown',
-    title: 'En ton artiste préféré',
-    description: 'Karaoké, performances, DJ sets et plus encore.',
+    title: 'En mode pyjama',
+    description: 'Viens comme tu es, le confort avant tout.',
   },
 ]
 </script>
@@ -54,7 +54,7 @@ const reasons = [
         <div
           v-for="(card, index) in reasons"
           :key="index"
-          class="card-halloween p-6 sm:p-7 flex flex-col justify-between group cursor-default"
+          class="card-cine p-6 sm:p-7 flex flex-col justify-between group cursor-default"
         >
           <!-- Card Icon -->
           <div class="w-12 h-12 rounded-xl bg-red-950/30 border border-red-500/20 flex items-center justify-center mb-6 group-hover:border-red-500/60 group-hover:bg-red-900/40 transition-colors">
@@ -63,7 +63,7 @@ const reasons = [
             <Users v-else-if="card.icon === 'users'" class="w-6 h-6 text-[#FF1E27]" />
             <Crown v-else-if="card.icon === 'crown'" class="w-6 h-6 text-[#FF1E27]" />
             
-            <!-- Masque Halloween stylisé pour 'mask' -->
+            <!-- Masque de jeu pour 'mask' -->
             <svg v-else class="w-6 h-6 text-[#FF1E27] stroke-current fill-none stroke-[2]" viewBox="0 0 24 24">
               <path d="M2 10s3-4 10-4 10 4 10 4-2 7-10 7-10-7-10-7z" />
               <circle cx="8" cy="10" r="2" class="fill-[#FF1E27]" />

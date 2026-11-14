@@ -10,19 +10,23 @@ const faqs = [
   },
   {
     q: 'Combien coûte le ticket ?',
-    a: `${formatPrice(event.price)} par personne. Il n'y a que ${event.capacity} places, donc premier arrivé, premier servi.`,
+    a: `${formatPrice(event.price)} pour un ticket unique, ou ${formatPrice(event.duoPrice)} pour le pass duo (2 places). Il n'y a que ${event.capacity} places, donc premier arrivé, premier servi.`,
   },
   {
     q: 'Quel est le dress code ?',
-    a: `${event.dressCode} Version Halloween de préférence. Et si tu manques d'inspiration, l'atelier maquillage sur place s'occupe de ta transformation.`,
+    a: `${event.dressCode} Pyjama, plaid, chaussettes, chaussons : le confort est la seule règle.`,
   },
   {
     q: "C'est où et à quelle heure ?",
-    a: `${event.dateLong}, à partir de 18h, au ${event.venue} à ${event.area} (${event.city}).`,
+    a: `${event.dateLong}, ${event.time} au ${event.venue} à ${event.area} (${event.city}). ${event.doors} pour récupérer ton popcorn et choisir ta place.`,
+  },
+  {
+    q: 'On regarde quel film ?',
+    a: `Surprise. Un film choisi pour la vibe de la soirée, projeté sur grand écran. On garde le mystère jusqu'au lancement de la séance.`,
   },
   {
     q: "Qu'est-ce qu'il y a au programme ?",
-    a: `Film d'horreur sur grand écran, karaoké, popcorn & drink, jeux, atelier maquillage et déguisement en ton artiste préféré. Le tout en musique avec ${event.dj}.`,
+    a: `Projection, débriefing à chaud, Undercover, karaoké et free popcorn & drink. Tout est inclus dans ton ticket.`,
   },
   {
     q: "J'ai la flemme. Je viens quand même ?",
@@ -42,10 +46,10 @@ function toggle(i) {
     <div class="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-4 sm:px-6 lg:grid-cols-12 lg:px-8">
       <div class="lg:col-span-4">
         <p v-reveal class="label-mono flex items-center gap-3 text-bone-dim">
-          <span class="text-blood">07</span> FAQ
+          <span class="text-accent">07</span> FAQ
         </p>
         <h2 v-reveal="100" class="display mt-6 text-[clamp(3rem,8vw,5.5rem)] text-bone">
-          Des <span class="whitespace-nowrap"><span class="text-blood">questions</span>&nbsp;?</span>
+          Des <span class="whitespace-nowrap"><span class="text-accent">questions</span>&nbsp;?</span>
         </h2>
       </div>
 
@@ -58,11 +62,11 @@ function toggle(i) {
               :aria-controls="`faq-${i}`"
               class="group flex w-full items-center justify-between gap-6 py-6 text-left"
             >
-              <span class="text-lg font-bold text-bone transition-colors group-hover:text-blood sm:text-xl">{{ item.q }}</span>
+              <span class="text-lg font-bold text-bone transition-colors group-hover:text-accent sm:text-xl">{{ item.q }}</span>
               <span
                 :class="[
                   'grid h-10 w-10 shrink-0 place-items-center border transition-all duration-300',
-                  openIndex === i ? 'rotate-45 border-blood bg-blood text-ink' : 'hairline text-bone',
+                  openIndex === i ? 'rotate-45 border-accent bg-accent text-ink' : 'hairline text-bone',
                 ]"
               >
                 <Plus class="h-4 w-4" />
