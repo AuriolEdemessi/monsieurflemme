@@ -19,7 +19,7 @@ const reasons = [
   },
   {
     icon: 'crown',
-    title: 'En mode pyjama',
+    title: 'En mode confort',
     description: 'Viens comme tu es, le confort avant tout.',
   },
 ]

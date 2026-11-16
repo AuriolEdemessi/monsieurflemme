@@ -14,7 +14,7 @@ const faqs = [
   },
   {
     q: 'Quel est le dress code ?',
-    a: `${event.dressCode} Pyjama, plaid, chaussettes, chaussons : le confort est la seule règle.`,
+    a: `${event.dressCode} Chaussettes, plaid, ce que tu veux : le confort est la seule règle.`,
   },
   {
     q: "C'est où et à quelle heure ?",

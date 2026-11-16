@@ -85,7 +85,7 @@ function handleSubmit() {
           </button>
           <p class="label-mono text-ink/60">Réservation</p>
           <h3 id="ticket-title" class="display mt-2 text-4xl text-ink">
-            Ciné Club <span class="font-marker text-2xl normal-case text-accent">Édition Pyjama</span>
+            Ciné Club <span class="font-marker text-2xl normal-case text-accent">{{ event.subtitle }}</span>
           </h3>
           <p class="mt-3 text-sm font-semibold text-ink/70">
             {{ event.dateShort }} · {{ event.time }} · {{ event.venue }}, {{ event.area }}

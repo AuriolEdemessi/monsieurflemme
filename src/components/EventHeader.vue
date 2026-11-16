@@ -8,7 +8,7 @@ const emit = defineEmits(['openTicket'])
 const links = [
   { id: 'programme', label: 'Programme' },
   { id: 'projection', label: 'Projection' },
-  { id: 'dress-code', label: 'Pyjama' },
+  { id: 'dress-code', label: 'Confort' },
   { id: 'infos', label: 'Infos' },
   { id: 'faq', label: 'FAQ' },
 ]

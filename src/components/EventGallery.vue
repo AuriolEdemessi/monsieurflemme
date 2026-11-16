@@ -61,7 +61,7 @@ function fileName(src) {
         <a :href="poster.src" target="_blank" rel="noopener" class="group block overflow-hidden border hairline">
           <img
             :src="poster.src"
-            :alt="`Affiche Ciné Club Édition Pyjama : ${poster.label}`"
+            :alt="`Affiche Ciné Club Édition Chill : ${poster.label}`"
             class="h-[440px] w-auto transition-transform duration-500 group-hover:scale-[1.03] sm:h-[560px] lg:h-[660px]"
             loading="lazy"
           />

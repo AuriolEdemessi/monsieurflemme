@@ -94,7 +94,7 @@ const facts = [
           <div class="paper torn relative -rotate-2 p-2.5 shadow-[0_35px_80px_rgb(0_0_0/0.7)] sm:p-3">
             <img
               :src="event.heroVisual"
-              alt="Affiche officielle du Ciné Club Édition Pyjama : deux personnages avachis sur un canapé avec popcorn"
+              alt="Affiche officielle du Ciné Club Édition Chill : deux personnages avachis sur un canapé avec popcorn"
               class="w-full"
               fetchpriority="high"
             />
@@ -102,7 +102,7 @@ const facts = [
 
           <div class="tape -top-3 left-1/2 -translate-x-1/2 -rotate-1"></div>
 
-          <!-- Sticker pyjama -->
+          <!-- Sticker dress code -->
           <div
             class="animate-float absolute -bottom-9 -left-6 z-10 grid h-28 w-28 place-items-center sm:-bottom-11 sm:-left-16 sm:h-36 sm:w-36"
             style="--r: -10deg"

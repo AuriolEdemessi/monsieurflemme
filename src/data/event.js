@@ -4,7 +4,7 @@
 export const event = {
   club: 'Flemmard Club',
   title: 'Ciné Club',
-  subtitle: 'Édition Pyjama',
+  subtitle: 'Édition Chill',
   tagline: 'Canapé, popcorn, film et bonne compagnie.',
   motto: 'Même quand on a la flemme, on sait faire la fête.',
 
@@ -26,8 +26,8 @@ export const event = {
   capacity: 30,
   maxTicketsPerOrder: 2,
 
-  dressCode: 'Viens en pyjama, ramène ton plaid.',
-  dressCodeShort: 'Viens en pyjama !',
+  dressCode: 'Viens comme tu es, mets-toi à l\'aise.',
+  dressCodeShort: 'Viens comme tu es !',
   slogan: 'Un canapé, un film, zéro prise de tête.',
 
   program: [
@@ -38,7 +38,7 @@ export const event = {
     { icon: 'popcorn', title: 'Popcorn & drink', text: 'Popcorn chaud et boisson offerts. Évidemment.' },
   ],
 
-  pillars: ['Cinéma', 'Jeux', 'Karaoké', 'Popcorn', 'Pyjama'],
+  pillars: ['Cinéma', 'Jeux', 'Karaoké', 'Popcorn', 'Confort'],
 
   // Affiches : dérivées de l'affiche officielle (dossier event/ à la racine)
   posters: [

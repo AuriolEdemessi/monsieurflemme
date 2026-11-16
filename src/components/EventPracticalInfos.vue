@@ -34,7 +34,7 @@ const barcode = Array.from({ length: 34 }, (_, i) => ((i * 7) % 5) + 1)
           </div>
 
           <p class="display mt-8 text-[clamp(2.6rem,7vw,4.5rem)] text-ink">
-            Ciné Club <span class="font-marker text-[0.6em] normal-case text-accent">Édition Pyjama</span>
+            Ciné Club <span class="font-marker text-[0.6em] normal-case text-accent">{{ event.subtitle }}</span>
           </p>
           <p class="mt-2 font-semibold text-ink/60">
             Ticket unique {{ formatPrice(event.price) }} · Pass duo {{ formatPrice(event.duoPrice) }}

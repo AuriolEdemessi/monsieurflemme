@@ -5,7 +5,7 @@ import BrushStroke from './ui/BrushStroke.vue'
 const emit = defineEmits(['openTicket'])
 
 const steps = [
-  { title: 'Sors ton pyjama', text: 'Le plus douillet, le plus ridicule. On valide tout.' },
+  { title: 'Viens comme tu es', text: 'Pas de tenue imposée. Le confort, c\'est la seule règle.' },
   { title: 'Prends ton plaid', text: 'Pour les frileux et les pros du canapé. Zéro jugement.' },
   { title: 'Reste toi-même', text: 'Chaussettes, chaussons, bonnet : le confort avant tout.' },
 ]
@@ -16,21 +16,21 @@ const steps = [
     <div class="mx-auto grid max-w-7xl grid-cols-1 gap-14 px-4 sm:px-6 lg:grid-cols-12 lg:px-8">
       <div class="lg:col-span-5">
         <p v-reveal class="label-mono flex items-center gap-3 text-bone-dim">
-          <span class="text-accent">04</span> Pyjama code
+          <span class="text-accent">04</span> Dress code
         </p>
         <h2 v-reveal="100" class="mt-6">
-          <span class="display block text-[clamp(3rem,8vw,6rem)] text-bone">Viens en</span>
+          <span class="display block text-[clamp(3rem,8vw,6rem)] text-bone">Viens comme</span>
           <span class="relative inline-block -rotate-2">
-            <span class="font-marker text-[clamp(2.6rem,7vw,5rem)] leading-none text-accent">pyjama</span>
+            <span class="font-marker text-[clamp(2.6rem,7vw,5rem)] leading-none text-accent">tu es</span>
             <BrushStroke class="absolute -bottom-2 left-0 h-3 w-full text-bone/80" />
           </span>
         </h2>
         <p v-reveal="200" class="mt-10 max-w-md text-lg text-bone-dim">
-          Pas de tenue à préparer, juste du confort. Pyjama, plaid, chaussettes :
+          Pas de tenue à préparer, juste du confort. Chaussettes, plaid, ce que tu veux :
           le club valide absolument tout.
         </p>
         <button v-reveal="300" @click="emit('openTicket')" class="btn-primary mt-10">
-          Je réserve et j'enfile mon pyjama
+          Je réserve et je viens comme je suis
           <ArrowRight class="h-4 w-4" />
         </button>
       </div>
